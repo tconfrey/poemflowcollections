@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "PoemFlowCollections": {
+            "applicationId": "MwFX1aKFmDgqMMAyRg3Ihocx3MSqes1unTokLIk9", 
+            "masterKey": "xSwmcJYDka9ZyDQVmX1d5NDgt5S2w9RLmwn3FAju"
+        }, 
+        "_default": {
+            "link": "PoemFlowCollections"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.12"
+    }
+}

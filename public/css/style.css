@@ -1,0 +1,444 @@
+/* CSS Document */
+
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+  font-family: Garamond;
+  src: url(../Garamond.ttf);
+}      
+
+@font-face {
+  font-family: Garamond;
+  src: url(../Garamond-Italic.ttf);
+  font-style: italic;
+}      
+
+#poempage{
+	margin: auto;
+	font-family: GaramondTTV;
+	font-size: 18px;
+	text-align: center;
+	color: #555;
+	background: #f8f8f8;
+	padding: 0px; /* 15px; */
+}
+
+#poemflow {
+	position: fixed;
+	margin: auto;
+	border: none;
+	top: 0;
+	font-family: Garamond;
+}
+
+h2 {
+    text-align: center;
+    font-family: GaramondTTV;
+    font-size: 26px;
+    padding-bottom: 5px;
+}
+
+#poempage h2 {
+    font-size: 22px;
+    padding-top: 5px;
+}
+
+#poempage b {
+    font-size: 20px;
+}
+
+#previewdescription, #poeminfo, #aboutcollectioncontent {
+    padding-left: 15px;
+    padding-right: 15px
+}
+
+#previeweditor, #abouteditor {
+    padding-right: 15px;
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) {
+    #poempage h2 {
+        font-size: 28px;
+        padding-top: 5px;
+    }
+    
+    #poempage b {
+        font-size: 24px;
+    }
+    
+    #previewdescription, #poeminfo, #aboutcollectioncontent {
+        padding-left: 40px;
+        padding-right: 40px
+    }
+    
+    #previeweditor, #abouteditor {
+        padding-right: 40px;
+    }
+
+}
+
+.center-wrapper {
+    text-align: center;
+}
+.center-wrapper * {
+    margin: 0 auto;
+}
+
+#replaybutton {
+    position: absolute;
+    top: 50%;
+    height: 128px;
+    margin-top: -64px;
+    left: 50%;
+    margin-left: -64px;
+}
+
+#poet, #description {
+    font-size: 12px;
+    color:  GrayText;
+}
+
+#price {
+    float: right;
+}
+
+#poemfooter .ui-btn-text {
+    position: absolute;
+    padding-left: 25px;
+    top: 7px;
+}
+
+#poemfooter .ui-icon {
+    left: 43%;
+    color: gold;
+}
+
+#previeweditor, #abouteditor {
+    float: right;
+    font-family: Garamond;
+    font-size: 12pt;
+    font-weight: bold;
+    color: black;
+}
+
+.previewblocklabel {
+    font-family: Garamond;
+    font-size: 18pt;
+    font-weight: bold;
+    color: black;
+}
+
+#previewflows {
+    margin-top: 5px;
+    border: n
+}
+
+#previewflows .ui-li {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#adimage, #adcontainer, #adfooter, #adlink {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+/* !!!! Tony hack to fix alignment on retina screen !!!! */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 240dpi) {
+	
+    .ui-icon-info {
+        background-position: 	-497px 50%; /* was -540px */
+    }
+    .ui-icon-grid {
+        background-position: 	-398px 50%;
+    }
+    .ui-icon-gear {
+        background-position: 	-265px 50%;
+    }
+    .ui-icon-back {
+        background-position: 	-365px 50%;
+    }
+    .ui-icon-star {
+        background-position: 	-431px 50%;
+    }
+    .ui-icon-arrow-r {
+        background-position: 	-99px 50%;
+    }
+    .ui-icon-delete {
+        background-position: 	-66px 50%;
+    }
+    .ui-icon-search,
+    .ui-icon-searchfield:after {
+        background-position: 	-564px 50%;
+    }
+    .ui-icon-arrow-d {
+        background-position: 	-198px 50%;
+    }
+    .ui-icon-check {
+        background-position: 	-232px 50%;
+    }
+}
+/* !!!! Tony hack to fix alignment on retina screen !!!! */
+
+
+/*
+a {
+	color: #555;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #0B0B61;
+	text-decoration: underline;
+}
+
+/* iphone horizontal + poemflow player
+========================== *-/
+
+#iphone-horizontal {
+	margin: 15px auto 0;
+	width: 890px;
+	height: 473px;
+	/*background: url(../images/iphone.jpg) no-repeat center top;*-/
+	background: url(http://poemflow.com/images/iphone.jpg) no-repeat center top;
+	position: relative;
+}
+
+/*#next a {
+	position: absolute;
+	width: 28px;
+	height: 88px;
+	right: 0;
+	top: 158px;
+	background: url(../images/flow-nextarrow.png) no-repeat;
+}
+*-/
+a#promotion {
+	background: none;
+	position: absolute;
+	display: block;
+	right: 0;
+	width: 275px;
+	height: 140px;
+	cursor: pointer;
+}
+
+
+#view-vertical {
+	margin: 110px auto 0;
+}
+
+/* iphone vertical + full text
+========================== *-/
+
+#iphone-vertical {
+	margin: 40px auto 0;
+	width: 463px;
+	height: 807px;
+	background: url(../images/iphone-vertical.jpg);
+	display: none;
+}
+
+#fulltext-container {
+	position: relative;
+	margin: 0 auto;
+	top: 121px;
+	left: 2px;
+	width: 320px;
+	height: 480px;	
+	background:  #fff;
+	font-family: GaramondTTV, Georgia, "Times New Roman", Times, serif;
+	overflow: hidden;
+}
+
+#fulltext {
+	padding: 20px 24px;
+	text-align: left;
+}
+
+#fulltext h3 { /*title*-/
+	font-size: 24px;
+	font-weight: normal;
+	margin: 0 0 12px;
+	color: #004a80;
+}
+
+#fulltext h4 { /*author*-/
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0 0 10px;
+	color: #4077a0;
+}
+
+#fulltext p.pubdate {
+	font-size: 14px;
+	margin: 0 0 30px;
+	color: #4077a0;
+	text-indent: 0;
+}
+
+
+#fulltext p {
+	font-size: 18px;
+	text-indent: -15px;
+	text-align: left;
+	font-family: GaramondTTV, Georgia, "Times New Roman", Times, serif;
+	color: #333;
+}
+
+#fulltext p.h {
+	margin: 5px 0 0 15px;
+}
+
+#fulltext p.newStanza {
+	margin-bottom: 30px;
+}
+
+#view-flow {
+	margin: 280px auto 0;
+}
+
+
+/* geolocation
+========================== *-/
+
+#geo {
+	margin: 0 auto 20px;
+}
+
+/* share tab
+========================== *-/
+
+#share {
+	margin: 0px auto;
+	padding: 20px 0;
+	width: 750px;
+	background:	#dbedff;
+	text-align: left;
+	display: none;
+}
+
+
+#share ul {
+	margin: 0;
+	list-style: none;
+}
+
+#share ul li {
+	display: inline;
+	margin: 0 15px;
+	padding: 0;
+}
+
+#share ul li a {
+	color: #336699;
+	text-decoration: none;
+}
+
+#share ul li a:hover,
+#share ul li a.twitter-share:hover span {
+	text-decoration: underline;
+}
+
+#share ul li a.twitter-share {
+	background: url(http://twitter-badges.s3.amazonaws.com/t_mini-a.png) left no-repeat;
+	text-decoration: none;
+}
+
+#share ul li a.twitter-share span {
+	margin: 0 0 0 20px;
+}
+
+#share a span {
+	margin: 0 0 0 18px;
+}
+
+#share #embed {
+	float: right;
+	margin: 0 40px 0 0;
+}
+
+#share #embed label {
+	font-weight: bold;
+}
+
+#share input {
+	width: 200px;
+}
+
+
+/* addToAny overrides to avoid duplicate listings
+========================== *-/
+
+#a2apage_twitter,
+#a2apage_facebook {display: none;}
+
+
+
+/* nav
+========================== *-/
+
+#nav {
+	text-align: center;
+	font-size: 12px;
+	list-style: none;
+	margin: 0 0 8px;
+}
+
+#nav li {
+	display: inline;
+	border-left: 1px solid #555;
+	padding: 0 15px;
+}
+
+#nav li:first-child {
+	border-left: none;
+}
+
+#nav li a {
+	padding: 4px 8px 8px;
+}
+
+#nav li a.sharetab {
+	background: #dbedff;
+}
+
+/* badge
+========================== *-/
+
+#badge {
+	margin: 0 auto 20px;
+	width: 191px;
+	height: 59px;
+	background: url(../images/badge.jpg) no-repeat;
+}
+
+#badge a {
+	width: 191px;
+	height: 59px;
+	display: block;
+	text-indent: -9000px;
+}
+
+/* footer
+========================== *-/
+
+#footer {
+	margin: 40px 0 20px;
+	font-size: 10px;
+}
+*/
+
+/* Flow */
+
+div.ttvLabel {
+	font-size: 100%;
+	font: GaramondTTV;
+}

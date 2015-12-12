@@ -1,0 +1,443 @@
+{
+  "iPadAd": "https://googledrive.com/host/0B9azlFhg9-PrMGV4aDd1OHBaZG8/ipad-ad.gif",
+  "iPhoneAd": "https://googledrive.com/host/0B9azlFhg9-PrMGV4aDd1OHBaZG8/iphone-ad.gif",
+  "AdDestinaton": "itms-apps://itunes.apple.com/us/app/id339835648?mt=8",
+  "StoreCollections": [
+    {
+      "name": "Classics",
+      "value": "1770,1756,1340,1351,1415,1649,939,1743,506,586,638,1946",
+      "summary": "A selection of classic poems from the PoemFlow collection",
+      "longdescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "editor": "TextTelevision",
+      "flows": [
+        {
+          "id": "1770",
+          "title": "Autumn Poem 2012",
+          "author": "Hoa Nguyen"
+        },
+        {
+          "id": "1756",
+          "title": "Love Poem",
+          "author": "Graham Foust"
+        },
+        {
+          "id": "1340",
+          "title": "Half-Hearted Sonnet",
+          "author": "Kim Addonizio"
+        },
+        {
+          "id": "1351",
+          "title": "Directions for Lines that will Remain Unfinished",
+          "author": "Sarah Messer"
+        },
+        {
+          "id": "1415",
+          "title": "Economy",
+          "author": "Sandra Beasley"
+        },
+        {
+          "id": "1649",
+          "title": "Quiet the Dog, Tether the Pony",
+          "author": "Marilyn Chin"
+        },
+        {
+          "id": "939",
+          "title": "On The Origins Of Things",
+          "author": "Troy Jollimore"
+        },
+        {
+          "id": "1743",
+          "title": "Praise Song for the Day",
+          "author": "Elizabeth Alexander"
+        },
+        {
+          "id": "506",
+          "title": "I Have News for You",
+          "author": "Tony Hoagland"
+        },
+        {
+          "id": "586",
+          "title": "Tell Me",
+          "author": "Sara London"
+        },
+        {
+          "id": "638",
+          "title": "Chaos is the New Calm",
+          "author": "Wyn Cooper"
+        },
+        {
+          "id": "1946",
+          "title": "Poem (As the cat)",
+          "author": "William Carlos Williams"
+        }
+      ],
+      "price": "Free",
+      "showinstore": true
+    },
+    {
+      "name": "Contemporary",
+      "value": "1770,1756,1340,1351,1415,1649,939,1743,506,586,638",
+      "summary": "A selection of contemporary poems from the PoemFlow collection",
+      "longdescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "editor": "TextTelevision",
+      "flows": [
+        {
+          "id": "1770",
+          "title": "Autumn Poem 2012",
+          "author": "Hoa Nguyen"
+        },
+        {
+          "id": "1756",
+          "title": "Love Poem",
+          "author": "Graham Foust"
+        },
+        {
+          "id": "1340",
+          "title": "Half-Hearted Sonnet",
+          "author": "Kim Addonizio"
+        },
+        {
+          "id": "1351",
+          "title": "Directions for Lines that will Remain Unfinished",
+          "author": "Sarah Messer"
+        },
+        {
+          "id": "1415",
+          "title": "Economy",
+          "author": "Sandra Beasley"
+        },
+        {
+          "id": "1649",
+          "title": "Quiet the Dog, Tether the Pony",
+          "author": "Marilyn Chin"
+        },
+        {
+          "id": "939",
+          "title": "On The Origins Of Things",
+          "author": "Troy Jollimore"
+        },
+        {
+          "id": "1743",
+          "title": "Praise Song for the Day",
+          "author": "Elizabeth Alexander"
+        },
+        {
+          "id": "506",
+          "title": "I Have News for You",
+          "author": "Tony Hoagland"
+        },
+        {
+          "id": "586",
+          "title": "Tell Me",
+          "author": "Sara London"
+        },
+        {
+          "id": "638",
+          "title": "Chaos is the New Calm",
+          "author": "Wyn Cooper"
+        }
+      ],
+      "price": "10",
+      "showinstore": true
+    },
+    {
+      "name": "Poetry Month",
+      "value": "1770,1756,1340,1351,1415,1649,939,1743,506,586,638",
+      "summary": "From the 2012 poetry month collection",
+      "longdescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "editor": "TextTelevision",
+      "flows": [
+        {
+          "id": "1770",
+          "title": "Autumn Poem 2012",
+          "author": "Hoa Nguyen"
+        },
+        {
+          "id": "1756",
+          "title": "Love Poem",
+          "author": "Graham Foust"
+        },
+        {
+          "id": "1340",
+          "title": "Half-Hearted Sonnet",
+          "author": "Kim Addonizio"
+        },
+        {
+          "id": "1351",
+          "title": "Directions for Lines that will Remain Unfinished",
+          "author": "Sarah Messer"
+        },
+        {
+          "id": "1415",
+          "title": "Economy",
+          "author": "Sandra Beasley"
+        },
+        {
+          "id": "1649",
+          "title": "Quiet the Dog, Tether the Pony",
+          "author": "Marilyn Chin"
+        },
+        {
+          "id": "939",
+          "title": "On The Origins Of Things",
+          "author": "Troy Jollimore"
+        },
+        {
+          "id": "1743",
+          "title": "Praise Song for the Day",
+          "author": "Elizabeth Alexander"
+        },
+        {
+          "id": "506",
+          "title": "I Have News for You",
+          "author": "Tony Hoagland"
+        },
+        {
+          "id": "586",
+          "title": "Tell Me",
+          "author": "Sara London"
+        },
+        {
+          "id": "638",
+          "title": "Chaos is the New Calm",
+          "author": "Wyn Cooper"
+        }
+      ],
+      "price": "10",
+      "showinstore": true
+    },
+    {
+      "name": "Other Poetry Month",
+      "value": "1770,1756,1340,1351,1415,1649,939,1743,506,586,638",
+      "summary": "From the 2012 poetry month collection",
+      "longdescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "editor": "TextTelevision",
+      "flows": [
+        {
+          "id": "1770",
+          "title": "Autumn Poem 2012",
+          "author": "Hoa Nguyen"
+        },
+        {
+          "id": "1756",
+          "title": "Love Poem",
+          "author": "Graham Foust"
+        },
+        {
+          "id": "1340",
+          "title": "Half-Hearted Sonnet",
+          "author": "Kim Addonizio"
+        },
+        {
+          "id": "1351",
+          "title": "Directions for Lines that will Remain Unfinished",
+          "author": "Sarah Messer"
+        },
+        {
+          "id": "1415",
+          "title": "Economy",
+          "author": "Sandra Beasley"
+        },
+        {
+          "id": "1649",
+          "title": "Quiet the Dog, Tether the Pony",
+          "author": "Marilyn Chin"
+        },
+        {
+          "id": "939",
+          "title": "On The Origins Of Things",
+          "author": "Troy Jollimore"
+        },
+        {
+          "id": "1743",
+          "title": "Praise Song for the Day",
+          "author": "Elizabeth Alexander"
+        },
+        {
+          "id": "506",
+          "title": "I Have News for You",
+          "author": "Tony Hoagland"
+        },
+        {
+          "id": "586",
+          "title": "Tell Me",
+          "author": "Sara London"
+        },
+        {
+          "id": "638",
+          "title": "Chaos is the New Calm",
+          "author": "Wyn Cooper"
+        }
+      ],
+      "price": "13",
+      "showinstore": true
+    },
+    {
+      "name": "All Yeats",
+      "price": "20",
+      "editor": "TextTelevision",
+      "summary": "All the current PoemFlow Yeats.",
+      "longdescription": "Includes favorites such as Easter 1916, The Second Coming and Wandering Aengus.\n\nLots of good stuff.",
+      "flows": [
+        {
+          "id": "1943",
+          "title": "The Cat and the Moon",
+          "author": "William Butler Yeats "
+        },
+        {
+          "id": "1904",
+          "title": "Song of the Old Mother",
+          "author": "William Butler Yeats "
+        },
+        {
+          "id": "1805",
+          "title": "The Hawk",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "279",
+          "title": "Easter 1916",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "791",
+          "title": "The Fascination of What",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "1786",
+          "title": "The Cold Heaven",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "1732",
+          "title": "The Balloon of the Mind",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "1332",
+          "title": "The Magi",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "989",
+          "title": "Who goes with Fergus?",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "728",
+          "title": "The Wild Swans of Coole",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "536",
+          "title": "A Prayer for my Daughter",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "259",
+          "title": "Leda and the Swan",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "279",
+          "title": "Easter 1916",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "262",
+          "title": "An Irish Airman Forsees His Death",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "390",
+          "title": "The Lake Isle of Innisfree",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "319",
+          "title": "Aedh wishes for the Cloths of Heaven",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "280",
+          "title": "The Second Coming",
+          "author": "William Butler Yeats"
+        },
+        {
+          "id": "292",
+          "title": "The Song of Wandering Aengus",
+          "author": "William Butler Yeats"
+        }
+      ],
+      "value": "1943,1904,1805,279,791,1786,1732,1332,989,728,536,259,279,262,390,319,280,292",
+      "showinstore": true
+    },
+    {
+      "name": "Dennis Collectibles",
+      "price": "11",
+      "showinstore": true,
+      "editor": "TextTelevision",
+      "summary": "A Cool Collection of Canticles",
+      "longdescription": "New collection for today!",
+      "flows": [
+        {
+          "id": "564",
+          "title": "All the world",
+          "author": "William Shakespeare"
+        },
+        {
+          "id": "1984",
+          "title": "Full fathom five",
+          "author": "William Shakespeare"
+        },
+        {
+          "id": "1911",
+          "title": "My love is strengthened, though more weak in seeming",
+          "author": "William Shakespeare"
+        },
+        {
+          "id": "1842",
+          "title": "When in the chronicle of wasted time",
+          "author": "William Shakespeare"
+        },
+        {
+          "id": "1849",
+          "title": "What is honour? ",
+          "author": "William Shakespeare"
+        },
+        {
+          "id": "1848",
+          "title": "Ay, but to die, and go we know not where",
+          "author": "William Shakespeare"
+        },
+        {
+          "id": "1847",
+          "title": "Be absolute for death",
+          "author": "William Shakespeare"
+        },
+        {
+          "id": "1292",
+          "title": "When I do count the clock that tells the time",
+          "author": "William Shakespeare"
+        },
+        {
+          "id": "1777",
+          "title": "Now is the winter of our discontent",
+          "author": "William Shakespeare"
+        },
+        {
+          "id": "1635",
+          "title": "To-morrow, and to-morrow, and to-morrow",
+          "author": "William Shakespeare"
+        },
+        {
+          "id": "1636",
+          "title": "St. Crispin",
+          "author": "William Shakespeare"
+        }
+      ],
+      "value": "564,1984,1911,1842,1849,1848,1847,1292,1777,1635,1636"
+    }
+  ]
+}
