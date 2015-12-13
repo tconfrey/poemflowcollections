@@ -93,7 +93,7 @@ function setDisplay()
 // set portrait or landscape display (flow or static)
 {
     console.log("width="+$(window).width()+", height="+ $(window).height());
-    if ($(window).width() > $(window).height()) {
+    if ($(window).width() > 9999) { //$(window).height()) {
         // landscape
         $.mobile.changePage($("#flowpage"), {transition: "slide"});
         setScale();

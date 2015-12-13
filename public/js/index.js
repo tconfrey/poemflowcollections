@@ -48,19 +48,14 @@ receivedEvent: function(id) {
 	if (id == 'deviceready') {
         console.log("Device Ready. Opening DB...");
         $.mobile.loading('show');
-		setTimeout(function(){OpenDB();	}, 300);	// set up the database, download flows as needed etc
-	}
-	if (id == 'filespopulated') {
-        console.log("Files populated. Setting up lists...");
-		setTimeout(function() {
-                   AllCollections = [];
-                   AllFlows = [];
-				   PopulateAllFlows();
-				   PopulateAllCollections();
-                   PopulateFavorites();
-				   SetupCallbacks();	// register for rotation events etc
-                   SetupScreen();
-				   }, 300);
+		ProcessLocalStorage();
+        AllCollections = [];
+        AllFlows = [];
+		PopulateAllFlows();
+		PopulateAllCollections();
+        PopulateFavorites();
+		SetupCallbacks();	// register for rotation events etc
+        SetupScreen();
 	}
 }
 };

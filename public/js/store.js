@@ -18,15 +18,17 @@ function GetStoreCollections(cbfunction) {
     // return an array of collections in the store
     
     //$.getJSON('https://googledrive.com/host/0B9azlFhg9-PrMGV4aDd1OHBaZG8/store.json', function(data) {
-    $.getJSON('http://poemflowcollections.com/store.json', function(data) {
+	var url = 'http://' + window.location.hostname + ':' + window.location.port + '/store.json';
+    $.getJSON(url, function(data) {
               var items = data.StoreCollections;
               StoreCollections = items;
-			  SetUpLinks(data.iPadAd, data.iPhoneAd, data.AdDestinaton);
+			  //SetUpLinks(data.iPadAd, data.iPhoneAd, data.AdDestinaton);
               cbfunction(items);
               });
 }
 
 function CheckNetworkAvailable() {
+	return true; 				// bypass for now
     var networkState = navigator.network.connection.type;
     
     // Options: UNKNOWN, ETHERNET, WIFI, CELL_2G CELL_3G CELL_4G NONE

@@ -9,48 +9,12 @@
 */
 
 var Db;
-var DefaultCollection = {name: "PoemFlow Sampler", value: "240, 269, 276, 280, 311, 327, 328, 349, 480",
+var DefaultCollection = {name: "PoemFlow Sampler", flows: [240, 269, 276, 280, 311, 327, 328, 349, 480],
     longdescription: "A small sample of the great poems in the PoemFlow collection", summary: "A small sample of the great poems in the PoemFlow collection",
     editor: "TextTelevision"};
-var BundledFiles = ["240.xml"];
+var DefaultFlows = [{id: '240', title: 'A Yellow Wood', author: 'Frost'}];
 var Collections = new Array();
 var AllFlowIds = new Array();
-
-function OpenDB() {
-    Db = window.openDatabase("PoemFlowCollectionsDB", "1.0", "PoemFlowCollectionsDB", 200000);
-    Collections = ProcessLocalStorage();
-
-    Db.transaction(CreateDB, 
-		   TransactionError, 
-		   function () { Db.transaction(PopulateCollectionsToDB, TransactionError, PopulateFlowsToFilesystem)}
-		  );
-}   
-
-
-
-function CreateDB(tx) {
-    // $('#busy').show();
-    var sql = 
-	"CREATE TABLE IF NOT EXISTS FLOW ( "+
-	"id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-	"FLOWID varchar(12), " +
-	"AUTHOR VARCHAR(50), " +
-	"TITLE VARCHAR(50), " +
-	"FAVORITE VARCHAR(2)) ";
-    tx.executeSql(sql);
-    var sql2 = 
-	"CREATE TABLE IF NOT EXISTS COLLECTION ( "+
-	"id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-	"NAME VARCHAR(50))";
-    tx.executeSql(sql2);
-    var sql3 = 
-	"CREATE TABLE IF NOT EXISTS FLOWCOLLECTION ( "+
-	"id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-	"COLLECTIONID INTEGER , " +
-	"FLOWID INTEGER);"
-    tx.executeSql(sql3);
-    console.log("created db.");
-}
 
 function UpdateCollectionsToLocalStorage(collections) {
     // push Collections array on to local storage
@@ -62,28 +26,173 @@ function ProcessLocalStorage() {
     if (window.localStorage.getItem('flowspeed')) {SetFlowSpeed();}
     if (window.localStorage.getItem('fontsize')) {SetFontSize();}
     var collections = new Array();
-    if (!window.localStorage.key('collections')) {
+    if (window.localStorage.getItem('collections')) {
+		collections = JSON.parse(window.localStorage.getItem('collections'));
+		console.log("collections array initialized with n entries where n=" + collections.length);
+	} else {
         // No collections purchased or stored, store the default collection
         console.log("need to set up local storage.");
         collections.push(DefaultCollection);
         UpdateCollectionsToLocalStorage(collections);
-        return collections;
     }
-    
-    collections = JSON.parse(window.localStorage.getItem('collections'));
-    for (var i = 0; i < collections.length; i++) {
-        console.log("found:"+collections[i].name);
-        /*
-        var obj = {
-	    name: collections[i].name,
-	    value: window.localStorage.getItem(window.localStorage.key(i))
-        }
-        collections.push(obj);
-         */
-    }
-    console.log("collections array initialized with n entries where n=" + collections.length);
-    return collections;
+
+    if (!window.localStorage.getItem('flows')) {
+        // No flows purchased or stored, store the default set
+		console.log("need to set up local flow storage");
+		window.localStorage.setItem('flows', JSON.stringify(DefaultFlows));
+	}
+	
+    Collections = collections;
 }
+
+function CreateFile(fileentry, fileurl) {
+    // read xml data from the url into the fileentry and populate FLOW table in DB
+    console.log("Reading in:"+fileurl);
+    $.ajax({
+           type: "GET",
+           url: fileurl,
+           dataType: "xml",
+           success: function(thexml) {
+           var title = $(thexml).find('title').text();
+           var author = $(thexml).find('author').first().text();
+           var id = $(thexml).find('flow').attr('id');
+           var sqlstring = "insert into FLOW (FLOWID, AUTHOR, TITLE, FAVORITE ) values(?,?,?,?)";
+           console.log("Writing Flow to DB:" + sqlstring + " id=" + id);
+           Db.transaction(function(tx) {
+                          tx.executeSql(sqlstring, [id.toString(), author, title, "N"], function(tx) { console.log("successful insert!");}, TransactionError);
+                          },
+                          TransactionError2);
+           
+           console.log("Writing out:"+fileurl);
+           fileentry.createWriter(function (filewriter) {
+                                  var xmlstring = (new XMLSerializer()).serializeToString(thexml);
+                                  filewriter.write(xmlstring);
+								  NumFilesToLoad--;
+								  console.log("numfilestoload:"+NumFilesToLoad);
+								  if (NumFilesToLoad == 0) {
+									app.receivedEvent('filespopulated');		// can move on to next thing
+								  }
+
+                                  });
+           },
+           error: function(a,b,c) {
+		   console.log("ERROR!:");
+		   console.log(a+b+c);
+           }// should delete file here
+           });
+}
+
+
+
+function TransactionError(tx, error) {
+    console.log("DB Error: " + error);
+}
+function TransactionError2(tx, error) {
+    console.log("DB2 Error: " + error);
+}
+
+
+/*-----------------------------------------------------------------*/
+/* Functions used to populate in-memory js arrays
+/*-----------------------------------------------------------------*/
+
+function PopulateAllFlows() {
+    // copy flows from localStorage
+    
+    AllFlows = JSON.parse(window.localStorage.getItem("flows"));
+    //PopulateAllFlowsList();
+}
+
+function PopulateAllCollections() {
+    // copy collections from localStorage
+	
+	AllCollections = JSON.parse(window.localStorage.getItem('collections'));
+	PopulateCollectionsList();
+}
+
+
+var Favorites;
+function PopulateFavorites() {
+    
+    Favorites = JSON.parse(window.localStorage.getItem('favorites'));
+	if (!Favorites) Favorites = [];
+    //PopulateFavoritesList();
+}
+
+/* Flow reading functions */
+
+var CurrentXML;
+function ReadFileXML(filename) {
+	console.log("trying to get"+filename);
+	$.ajax({
+        type: "GET",
+		url: "flows/240.xml",
+		dataType: "xml",
+		success: function(thexml) {
+			CurrentXML = thexml;
+			SetupFlow();
+		}
+    });
+}
+
+
+function ToggleFavorite() {
+    // Toggle current flows fav status
+    if (CurrentFlowIsAFav()) {
+        Db.transaction(function (tx) {
+                       var statement = "update FLOW set FAVORITE = 'N' where FLOWID = '" + CurrentFlow + "';";
+                       tx.executeSql(statement, [], PopulateFavorites);
+                       },
+                       TransactionError);
+        PoemFooterUnFav();
+    }
+    else {
+        Db.transaction(function (tx) {
+                       var statement = "update FLOW set FAVORITE = 'Y' where FLOWID = '" + CurrentFlow + "';";
+                       tx.executeSql(statement, [], PopulateFavorites);
+                       },
+                       TransactionError);
+        PoemFooterFav();
+    }
+}
+
+
+function CurrentFlowIsAFav() {
+    // Is the current flow a fav
+    for (var i = 0; i < Favorites.length; i++) {
+        if (parseInt(Favorites[i].FLOWID) == CurrentFlow) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function SetFlowSpeed() {
+    
+    if (!window.localStorage.getItem('flowspeed')) return;
+    var spd = window.localStorage.getItem('flowspeed');
+    flowspeed = spd;
+    $('#speed').val(spd);
+    
+    /* Need to wait until the prefs page is initialized ot refresh the slider */
+    $( '#preferencespage' ).live( 'pageinit',function(event){
+                                 $('#speed').val(spd);
+                                 $('#speed').slider("refresh");
+                           });
+}
+
+function SetFontSize() {
+    
+    if (!window.localStorage.getItem('fontsize')) return;
+    var fontsize = window.localStorage.getItem('fontsize');
+    fontpx = GetFontPx(fontsize);
+    $('#textsize').val(fontsize);
+    $('#staticpoem').css('font-size', fontpx);
+}
+
+
+
+//---------------------------------------------------------------------------
 
 function PopulateCollectionsToDB(tx) {
     // Loop through Collections and make sure they are reflected in the DB.
@@ -196,225 +305,3 @@ function IterateFileEntries(entries) {
 		app.receivedEvent('filespopulated');		// move on to next thing
 	}
 }
-
-function CreateFile(fileentry, fileurl) {
-    // read xml data from the url into the fileentry and populate FLOW table in DB
-    console.log("Reading in:"+fileurl);
-    $.ajax({
-           type: "GET",
-           url: fileurl,
-           dataType: "xml",
-           success: function(thexml) {
-           var title = $(thexml).find('title').text();
-           var author = $(thexml).find('author').first().text();
-           var id = $(thexml).find('flow').attr('id');
-           var sqlstring = "insert into FLOW (FLOWID, AUTHOR, TITLE, FAVORITE ) values(?,?,?,?)";
-           console.log("Writing Flow to DB:" + sqlstring + " id=" + id);
-           Db.transaction(function(tx) {
-                          tx.executeSql(sqlstring, [id.toString(), author, title, "N"], function(tx) { console.log("successful insert!");}, TransactionError);
-                          },
-                          TransactionError2);
-           
-           console.log("Writing out:"+fileurl);
-           fileentry.createWriter(function (filewriter) {
-                                  var xmlstring = (new XMLSerializer()).serializeToString(thexml);
-                                  filewriter.write(xmlstring);
-								  NumFilesToLoad--;
-								  console.log("numfilestoload:"+NumFilesToLoad);
-								  if (NumFilesToLoad == 0) {
-									app.receivedEvent('filespopulated');		// can move on to next thing
-								  }
-
-                                  });
-           },
-           error: function(a,b,c) {
-		   console.log("ERROR!:");
-		   console.log(a+b+c);
-           }// should delete file here
-           });
-}
-
-
-
-function TransactionError(tx, error) {
-    console.log("DB Error: " + error);
-}
-function TransactionError2(tx, error) {
-    console.log("DB2 Error: " + error);
-}
-
-
-/*-----------------------------------------------------------------*/
-/* Functions used to populate in-memory js arrays
-/*-----------------------------------------------------------------*/
-
-function PopulateAllFlows() {
-    // create transaction to populate all flow array
-    Db.transaction(function (tx) {
-                   tx.executeSql('select * from FLOW', [], PopulateAllFlowsArray, TransactionError);
-                   },
-                   TransactionError);
-}
-
-function PopulateAllCollections() {
-    // create transaction to populate all collections array
-    Db.transaction(function (tx) {
-                   tx.executeSql("select * from COLLECTION", [], PopulateAllCollectionsArray, TransactionError);
-                   },
-                   TransactionError);
-}
-
-var Favorites;
-function PopulateFavorites() {
-    // create transaction to populate all collections array
-    Db.transaction(function (tx) {
-                   tx.executeSql("select * from FLOW where FAVORITE = 'Y'", [], PopulateFavoritesArray, TransactionError);
-                   },
-                   TransactionError);
-}
-
-
-function PopulateAllFlowsArray(tx, results) {
-    // fill up the array with the DB qry result set
-    
-    var len = results.rows.length;
-    console.log("FLOW table: " + len + " rows found.");
-    
-    for (var i=0; i<len; i++){
-        console.log("Row = " + i + " ID = " + results.rows.item(i).id + " FLOWID = " + results.rows.item(i).FLOWID + " Author =  " + results.rows.item(i).AUTHOR + " Title = " + results.rows.item(i).TITLE + "Fav = " + results.rows.item(i).FAVORITE);
-        AllFlows.push(results.rows.item(i));
-    }
-    
-    console.log("did you see "+len+" rows?, Now populating flows list...");
-    PopulateAllFlowsList();
-}
-
-function PopulateAllCollectionsArray(tx, results) {
-    // fill up the array with the DB qry result set
-    
-    var len = results.rows.length;
-    console.log("COLLECTIONS table: " + len + " rows found.");
-    for (var i=0; i<len; i++){
-        console.log("Row = " + i + " ID = " + results.rows.item(i).id + " NAME =  " + results.rows.item(i).NAME);
-		var newcol = {id:results.rows.item(i).id, name:results.rows.item(i).NAME, flows:[]};
-        AllCollections[newcol.id] = newcol;
-    }
-	PopulateCollectionsList();
-	tx.executeSql("select * from FLOWCOLLECTION", [], PopulateFlowsInCollections, TransactionError);
-}
-
-function PopulateFavoritesArray(tx, results) {
-    // fill up the array with the DB qry result set
-    
-    Favorites = new Array();
-    var len = results.rows.length;
-    console.log("FLOW table: " + len + " Fav rows found.");
-    
-    for (var i=0; i<len; i++){
-        console.log("Row = " + i + " ID = " + results.rows.item(i).id + " FLOWID = " + results.rows.item(i).FLOWID + " Author =  " + results.rows.item(i).AUTHOR + " Title = " + results.rows.item(i).TITLE + "Fav = " + results.rows.item(i).FAVORITE);
-        Favorites.push(results.rows.item(i));
-    }
-    
-    console.log("did you see "+len+" rows?, Now populating favorites list...");
-    PopulateFavoritesList();
-}
-
-function PopulateFlowsInCollections(tx, results) {
-	// Remember the list of flows in each collection
-	
-    var len = results.rows.length;
-    console.log("FLOWCOLLECTION table: " + len + " rows found.");
-	for (var i=0; i<len; i++) {
-		console.log("Row = " + i + ", COLLECTIONID="+results.rows.item(i).COLLECTIONID+", FLOWID="+results.rows.item(i).FLOWID);
-		for (var j=0; j<AllCollections.length; j++) {
-			if (AllCollections[j] && (AllCollections[j].id == results.rows.item(i).COLLECTIONID)) {
-				AllCollections[j].flows.push(results.rows.item(i).FLOWID);
-			}
-		}
-	}
-}
-
-/* Flow reading functions */
-
-var CurrentXML;
-function ReadFileXML(filename) {
-// create fileentry from filename
-	console.log("trying to get"+filename);
-    LocalFS.root.getFile(
-	filename, 
-	null, 
-    function(fileentry) {  // call .file to get the file from the fileentry, call read from its success cb
-		fileentry.file(function(file){ReadXMLFromFileEntry(file);});
-	},
-	TransactionError2
-    );
-}
-
-function ReadXMLFromFileEntry(file) {
-// read xml from file
-    var reader = new FileReader();
-    reader.onloadend = function(evt) {
-        var thexmlstring = evt.target.result;
-        CurrentXML = $.parseXML(thexmlstring);
-        SetupFlow();
-    };
-    reader.readAsText(file);
-}
-
-
-function ToggleFavorite() {
-    // Toggle current flows fav status
-    if (CurrentFlowIsAFav()) {
-        Db.transaction(function (tx) {
-                       var statement = "update FLOW set FAVORITE = 'N' where FLOWID = '" + CurrentFlow + "';";
-                       tx.executeSql(statement, [], PopulateFavorites);
-                       },
-                       TransactionError);
-        PoemFooterUnFav();
-    }
-    else {
-        Db.transaction(function (tx) {
-                       var statement = "update FLOW set FAVORITE = 'Y' where FLOWID = '" + CurrentFlow + "';";
-                       tx.executeSql(statement, [], PopulateFavorites);
-                       },
-                       TransactionError);
-        PoemFooterFav();
-    }
-}
-
-
-function CurrentFlowIsAFav() {
-    // Is the current flow a fav
-    for (var i = 0; i < Favorites.length; i++) {
-        if (parseInt(Favorites[i].FLOWID) == CurrentFlow) {
-            return true;
-        }
-    }
-    return false;
-}
-
-function SetFlowSpeed() {
-    
-    if (!window.localStorage.getItem('flowspeed')) return;
-    var spd = window.localStorage.getItem('flowspeed');
-    flowspeed = spd;
-    $('#speed').val(spd);
-    
-    /* Need to wait until the prefs page is initialized ot refresh the slider */
-    $( '#preferencespage' ).live( 'pageinit',function(event){
-                                 $('#speed').val(spd);
-                                 $('#speed').slider("refresh");
-                           });
-}
-
-function SetFontSize() {
-    
-    if (!window.localStorage.getItem('fontsize')) return;
-    var fontsize = window.localStorage.getItem('fontsize');
-    fontpx = GetFontPx(fontsize);
-    $('#textsize').val(fontsize);
-    $('#staticpoem').css('font-size', fontpx);
-}
-
-
-

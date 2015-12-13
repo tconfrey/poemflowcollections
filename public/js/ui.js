@@ -10,7 +10,7 @@ function PopulateAllFlowsList () {
     for (var i = 0; i < AllFlows.length; i++) {
         var flow = AllFlows[i];
         var fid = flow.FLOWID;
-        var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'><div>"+TrimTitle(flow.TITLE, titlechars)+"</div><div id='poet'>"+flow.AUTHOR+"</div></li>";
+        var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
         $("#allflows").append(child);
     }
     console.log("created flow list items, now refreshing view:");
@@ -37,7 +37,7 @@ function PopulateCollectionsList() {
     for (var i = 0; i < AllCollections.length; i++) {
         var collection = AllCollections[i];
         if (collection) {
-        var child = "<li onclick='CurrentCollection=\""+collection.id+"\";ShowCurrentCollection();'><a href='#collectionpage' data-transition='slide'><div>"+TrimTitle(collection.name, titlechars)+"</div></a></li>";
+        var child = "<li onclick='CurrentCollection=\""+i+"\";ShowCurrentCollection();'><a href='#collectionpage' data-transition='slide'><div>"+TrimTitle(collection.name, titlechars)+"</div></a></li>";
         $("#allcollections").append(child);
         }
     }
@@ -57,7 +57,7 @@ function PopulateFavoritesList () {
     for (var i = 0; i < Favorites.length; i++) {
         var flow = Favorites[i];
         var fid = flow.FLOWID;
-        var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'><div>"+TrimTitle(flow.TITLE, titlechars)+"</div><div id='poet'>"+flow.AUTHOR+"</div></li>";
+        var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
         $("#favoriteflows").append(child);
     }
     if (app.favoritesinitialized && $("#favoriteflows").hasClass("ui-listview")) {  // refresh ui on subsequent updates
@@ -80,7 +80,7 @@ function ShowCurrentCollection(){
     for (var i=0; i<collection.flows.length; i++) {
         var fid = collection.flows[i];
         var flow = GetFlowById(fid);
-        var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'><div>"+TrimTitle(flow.TITLE, titlechars)+"</div><div id='poet'>"+flow.AUTHOR+"</div></li>";
+        var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
         $("#collectionflows").append(child);
     }
     if (app.collectioninitialized) {  // refresh ui on subsequent updates
@@ -113,9 +113,9 @@ function GetCollectionByName(name) {
 function LoadCurrentFlow() {
     // Fun with Flows...
     var flow = GetFlowById(CurrentFlow);
-    console.log("Current Flow = "+flow.TITLE);
-    $("#poemname").text(TrimTitle(flow.TITLE, 25));
-    ReadFileXML(flow.FLOWID+".xml");
+    console.log("Current Flow = "+flow.title);
+    $("#poemname").text(TrimTitle(flow.title, 25));
+    ReadFileXML(flow.id+".xml");
     if (CurrentFlowIsAFav()) {
         PoemFooterFav();
     }
@@ -160,7 +160,7 @@ function SetupScreen() {
     // Running on iPad?
     if (($(window).width() + $(window).height()) == 1792) {
         RunningOnIPad = true;
-        $("#adimage").attr("src", "https://googledrive.com/host/0B9azlFhg9-PrMGV4aDd1OHBaZG8/ipad-ad.gif");
+//        $("#adimage").attr("src", "https://googledrive.com/host/0B9azlFhg9-PrMGV4aDd1OHBaZG8/ipad-ad.gif");
     }
     $.mobile.loading('hide');
 }

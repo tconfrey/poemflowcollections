@@ -11,9 +11,9 @@
 		<script src="js/data.js" type="text/javascript"></script>
 		<script src="js/ui.js" type="text/javascript"></script>
 		<script src="js/store.js" type="text/javascript"></script>
-		<script type="text/javascript" src="cordova.js"></script>
+<!--		<script type="text/javascript" src="cordova.js"></script> -->
 		<script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript" src="js/InAppPurchase.js"></script>
+<!--		<script type="text/javascript" src="js/InAppPurchase.js"></script>  -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<title>Poem Flow</title>
 		
@@ -29,20 +29,11 @@
 			
 			<div data-role="content">
 				<div data-role="controlgroup" style="border-style: double;">
-					<a href="#collectionspage" data-role="button" data-theme="d" style="height:50px">My Collections</a>
-					<a href="#poemlistpage" data-role="button" data-theme="d" style="height:50px">My Poems</a>
-					<a href="#favoritespage" data-role="button" data-theme="d" style="height:50px">My Favorites</a>
+					<a href="#poemlistpage" data-role="button" data-theme="d" style="height:50px">Poems</a>
+					<a href="#collectionspage" data-role="button" data-theme="d" style="height:50px">Collections</a>
+					<a href="#favoritespage" data-role="button" data-theme="d" style="height:50px">Favorites</a>
 				</div><!-- /controlgroup -->
 			</div><!-- /content -->
-			
-			<div data-role="footer" data-theme="a" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li ><a id="storelink" data-icon="grid" data-role="button" onClick='PopulateStore()'>Store</a></li>
-						<li ><a data-icon="gear" data-role="button"  href="#preferencespage">Settings</a></li>
-					</ul>
-				</div>
-			</div> <!-- /footer -->
 			
 		</div><!-- /home page -->
 		
@@ -143,7 +134,16 @@
 				<br/>
 				<b>PoemFlow Collections</b> is a library of collections of your favorite poems as curated by TextTelevision and the Academy of American Poets.
 			</div>
-			
+
+			<div data-role="footer" data-theme="a" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li ><a id="storelink" data-icon="grid" data-role="button" onClick='PopulateStore()'>Store</a></li>
+						<li ><a data-icon="gear" data-role="button"  href="#preferencespage">Settings</a></li>
+					</ul>
+				</div>
+			</div> <!-- /footer -->
+						
 		</div><!-- /appinfo page -->
 		
 		
@@ -227,7 +227,8 @@
 			<div data-role="footer" data-theme="a" data-position="fixed" id="adfooter">
                 <div id="adcontainer">
                     <a href="http://poemflow.com" target="_blank" id="adlink">
-                        <img id="adimage" src="https://googledrive.com/host/0B9azlFhg9-PrMGV4aDd1OHBaZG8/iphone-ad.gif" width="320" height="64"/>
+                        <!-- <img id="adimage" src="https://googledrive.com/host/0B9azlFhg9-PrMGV4aDd1OHBaZG8/iphone-ad.gif" width="320" height="64"/> -->
+						ad-image-here
                     </a>
                 </div>
 			</div> <!-- /footer -->
