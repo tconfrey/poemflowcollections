@@ -12,7 +12,6 @@ $(document).ready(function(){
     AllFlows = [];
 	PopulateAllFlows();
 	PopulateAllCollections();
-    PopulateFavorites();
 	SetupCallbacks();	// register for rotation events etc
     SetupScreen();
 });

@@ -167,7 +167,7 @@ function InteractWithAppStore(collection) {
     /* Do app Store stuff here, and then... */
     
     Collections.push(collection);
-    UpdateCollectionsToLocalStorage(Collections);
+    UpdateCollectionsToLocalStorage();
     
     // Everything else should flow from the populate DB functions via events
     Db.transaction(PopulateCollectionsToDB, TransactionError, PopulateFlowsToFilesystem);

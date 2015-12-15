@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="269">
+  <title>The Road Not Taken</title>
+  <short_title>Robert Frost:  The Road Not Taken</short_title>
+  <author>Robert Frost</author>
+  <description>Before writing this famous poem, Frost had been literally at a crossroads one winter when he saw a man that looked very similar to himself going the other way. 
+
+The letter in which he describes this begins: "Two lonely cross-roads that themselves cross each other I have walked several times this winter..."</description>
+  <mobile_link>http://poets.org/m/search.php?prmAuthor=192</mobile_link>
+  <link_title>http://poets.org/viewmedia.php/prmMID/15717</link_title>
+  <author_link>http://poets.org/poet.php/prmPID/192</author_link>
+  <tags>poetry, poem, New Hamshire, Robert Frost, Frost, 1915, 1916, Mountain Interval</tags>
+  <author>Robert Frost</author>
+  <publishedDate>1916</publishedDate>
+  <image>
+    <full_size>http://www.poemflow.com/assets/images/269/original/Frost_Robert_1.jpg?1270072989</full_size>
+    <thumbnail>http://www.poemflow.com/assets/images/269/thumb/Frost_Robert_1.jpg?1270072989</thumbnail>
+  </image>
+  <updated_at>2010-03-31 22:03:10 UTC</updated_at>
+  <liveDate>2012-02-26 15:27:02</liveDate>
+  <remove_hanging_indent>false</remove_hanging_indent>
+<ttvFlow flowComposer='anonymous' font='Garamond' fontSize='28'>
+  <ttvPlainText>
+    <ttvOriginalText><![CDATA[Two roads diverged in a yellow wood,
+And sorry I could not travel both
+And be one traveler, long I stood
+And looked down one as far as I could
+To where it bent in the undergrowth;
+
+Then took the other, as just as fair,
+And having perhaps the better claim,
+Because it was grassy and wanted wear;
+Though as for that the passing there
+Had worn them really about the same,
+
+
+And both that morning equally lay
+In leaves no step had trodden black.
+Oh, I kept the first for another day!
+Yet knowing how way leads on to way,
+I doubted if I should ever come back.
+
+I shall be telling this with a sigh
+Somewhere ages and ages hence:
+Two roads diverged in a wood, and I--
+I took the one less traveled by,
+And that has made all the difference.]]></ttvOriginalText>
+    <ttvHTMLText><![CDATA[
+<p class='h'><span id='a1'>Two roads </span><span id='a2'>diverged </span><span id='a3'>in a yellow wood,</span></p>
+<p class='h'><span id='a4'>And sorry I could not </span><span id='a5'>travel both</span></p>
+<p class='h'><span id='a6'>And be </span><span id='a7'>one traveler,</span> <span id='a8'>long I stood</span></p>
+<p class='h'><span id='a9'>And looked down one </span><span id='a10'>as far as </span><span id='a11'>I could</span></p>
+<p class='h'><span id='a12'>To where it bent </span><span id='a13'>in the undergrowth;</span></p>
+<p class='h'>&nbsp;</p>
+<p class='h'><span id='a14'>Then took </span><span id='a15'>the other,</span> <span id='a16'>as</span><span id='a17'> just </span><span id='a18'>as</span><span id='a19'> fair,</span></p>
+<p class='h'><span id='a20'>And having perhaps </span><span id='a21'>the better claim,</span></p>
+<p class='h'><span id='a22'>Because it was grassy </span><span id='a23'>and wanted wear;</span></p>
+<p class='h'><span id='a24'>Though as for that </span><span id='a25'>the passing there</span></p>
+<p class='h'><span id='a26'>Had worn them </span><span id='a27'>really </span><span id='a28'>about the same,</span></p>
+<p class='h'>&nbsp;</p>
+<p class='h'>&nbsp;</p>
+<p class='h'><span id='a29'>And both </span><span id='a30'>that morning </span><span id='a31'>equally lay</span></p>
+<p class='h'><span id='a32'>In leaves </span><span id='a33'>no step </span><span id='a34'>had trodden black.</span></p>
+<p class='h'><span id='a35'>Oh, </span><span id='a36'>I kept the first</span><span id='a37'> </span>for another day<span id='a38'>!</span></p>
+<p class='h'><span id='a39'>Yet knowing how </span><span id='a40'>way leads on to way,</span></p>
+<p class='h'><span id='a41'>I doubted </span><span id='a42'>if I should ever </span><span id='a43'>come back.</span></p>
+<p class='h'>&nbsp;</p>
+<p class='h'><span id='a44'>I shall be telling </span><span id='a45'>this with a sigh</span></p>
+<p class='h'><span id='a46'>Somewhere</span> <span id='a47'>ages</span><span id='a48'> and </span><span id='a49'>ages</span><span id='a50'> </span><span id='a51'>hence:</span></p>
+<p class='h'><span id='a52'>Two roads diverged </span><span id='a53'>in a wood,</span> <span id='a54'>and I</span>--</p>
+<p class='h'><span id='a55'>I took the one </span><span id='a56'>less traveled by,</span></p>
+<p class='h'><span id='a57'>And that has made </span><span id='a58'>all the difference.</span></p>]]></ttvHTMLText>
+  </ttvPlainText><ttvVerse type='generatedTitle'>
+      <ttvLabel text='The Road Not Taken' type='Title' fontSize='48'>
+      <ttvMotion y1='75' x1='41' y2='75' x2='41' a1='0.0' e='' a2='1.0' t1='100' t2='200'/>
+      <ttvMotion y1='75' x1='41' y2='75' x2='41' a1='1.0' e='' a2='0.0' t1='700' t2='800'/>
+    </ttvLabel>
+    <ttvLabel fontStyle='italic' text='Robert Frost' type='Author' fontSize='32'>
+      <ttvMotion y1='150' x1='172' y2='150' x2='172' a1='0.0' a2='1.0' t1='300' t2='400'/>
+      <ttvMotion y1='150' x1='172' y2='150' x2='172' a1='1.0' a2='0.0' t1='700' t2='800'/>
+    </ttvLabel>
+ 
+    <ttvLogo scale='1.3' type='fadeout'>
+      <ttvMotion y1='200' x1='0' y2='200' x2='0' a1='1.0' a2='0.99' t1='400' t2='800'/>
+    </ttvLogo>
+</ttvVerse>
+  
+  <ttvVerse e='367' type='primitive' s='0'>
+    <ttvLabel text='two roads ' e='10' id='a1' s='0'>
+      <ttvMotion y1='80' x1='183' y2='80' x2='183' a1='0.0' a2='1.0' t1='150' t2='250'/>
+      <ttvMotion y1='80' x1='183' y2='80' x2='183' a1='1.0' a2='0.0' t1='500' t2='600'/>
+    </ttvLabel>
+    <ttvLabel text='diverged ' e='19' id='a2' s='10'>
+      <ttvMotion y1='140' x1='190' y2='140' x2='190' a1='0.0' a2='1.0' t1='250' t2='350'/>
+      <ttvMotion y1='140' x1='190' y2='140' x2='190' a1='1.0' a2='0.0' t1='500' t2='600'/>
+    </ttvLabel>
+    <ttvLabel text='in a yellow wood' e='37' id='a3' s='19'>
+      <ttvMotion y1='200' x1='149' y2='200' x2='149' a1='0.0' a2='1.0' t1='350' t2='450'/>
+      <ttvMotion y1='200' x1='149' y2='200' x2='149' a1='1.0' a2='0.0' t1='500' t2='600'/>
+    </ttvLabel>
+    <ttvLabel text='and sorry I could not ' e='59' id='a4' s='37'>
+      <ttvMotion y1='80' x1='123' y2='80' x2='123' a1='0.0' a2='1.0' t1='550' t2='650'/>
+      <ttvMotion y1='80' x1='123' y2='80' x2='123' a1='1.0' a2='0.0' t1='1000' t2='1100'/>
+    </ttvLabel>
+    <ttvLabel text='travel both' e='71' id='a5' s='59'>
+      <ttvMotion y1='140' x1='182' y2='140' x2='182' a1='0.0' a2='1.0' t1='650' t2='750'/>
+      <ttvMotion y1='140' x1='182' y2='140' x2='182' a1='1.0' a2='0.0' t1='1000' t2='1100'/>
+    </ttvLabel>
+    <ttvLabel text='and be ' e='78' id='a6' s='71'>
+      <ttvMotion y1='200' x1='200' y2='200' x2='200' a1='0.0' a2='1.0' t1='750' t2='850'/>
+      <ttvMotion y1='200' x1='200' y2='200' x2='200' a1='1.0' a2='0.0' t1='1000' t2='1100'/>
+    </ttvLabel>
+    <ttvLabel text='one traveler' e='91' id='a7' s='78'>
+      <ttvMotion y1='260' x1='176' y2='260' x2='176' a1='0.0' a2='1.0' t1='850' t2='950'/>
+      <ttvMotion y1='260' x1='176' y2='260' x2='176' a1='1.0' a2='0.0' t1='1000' t2='1100'/>
+    </ttvLabel>
+    <ttvLabel text='long I stood' e='105' id='a8' s='92'>
+      <ttvMotion y1='80' x1='174' y2='80' x2='174' a1='0.0' a2='1.0' t1='1050' t2='1150'/>
+      <ttvMotion y1='80' x1='174' y2='80' x2='174' a1='1.0' a2='0.0' t1='1200' t2='1300'/>
+    </ttvLabel>
+    <ttvLabel text='and looked down one ' e='125' id='a9' s='105'>
+      <ttvMotion y1='80' x1='119' y2='80' x2='119' a1='0.0' a2='1.0' t1='1250' t2='1350'/>
+      <ttvMotion y1='80' x1='119' y2='80' x2='119' a1='1.0' a2='0.0' t1='1600' t2='1700'/>
+    </ttvLabel>
+    <ttvLabel text='as far as ' e='135' id='a10' s='125'>
+      <ttvMotion y1='140' x1='194' y2='140' x2='194' a1='0.0' a2='1.0' t1='1350' t2='1450'/>
+      <ttvMotion y1='140' x1='194' y2='140' x2='194' a1='1.0' a2='0.0' t1='1600' t2='1700'/>
+    </ttvLabel>
+    <ttvLabel text='I could' e='143' id='a11' s='135'>
+      <ttvMotion y1='200' x1='201' y2='200' x2='201' a1='0.0' a2='1.0' t1='1450' t2='1550'/>
+      <ttvMotion y1='200' x1='201' y2='200' x2='201' a1='1.0' a2='0.0' t1='1600' t2='1700'/>
+    </ttvLabel>
+    <ttvLabel text='to where it bent ' e='160' id='a12' s='143'>
+      <ttvMotion y1='80' x1='151' y2='80' x2='151' a1='0.0' a2='1.0' t1='1650' t2='1750'/>
+      <ttvMotion y1='80' x1='151' y2='80' x2='151' a1='1.0' a2='0.0' t1='1900' t2='2000'/>
+    </ttvLabel>
+    <ttvLabel text='in the undergrowth' e='181' id='a13' s='160'>
+      <ttvMotion y1='140' x1='136' y2='140' x2='136' a1='0.0' a2='1.0' t1='1750' t2='1850'/>
+      <ttvMotion y1='140' x1='136' y2='140' x2='136' a1='1.0' a2='0.0' t1='1900' t2='2000'/>
+    </ttvLabel>
+    <ttvLabel text='then took ' e='191' id='a14' s='181'>
+      <ttvMotion y1='80' x1='184' y2='80' x2='184' a1='0.0' a2='1.0' t1='1950' t2='2050'/>
+      <ttvMotion y1='80' x1='184' y2='80' x2='184' a1='1.0' a2='0.0' t1='2200' t2='2300'/>
+    </ttvLabel>
+    <ttvLabel text='the other' e='201' id='a15' s='191'>
+      <ttvMotion y1='140' x1='191' y2='140' x2='191' a1='0.0' a2='1.0' t1='2050' t2='2150'/>
+      <ttvMotion y1='140' x1='191' y2='140' x2='191' a1='1.0' a2='0.0' t1='2200' t2='2300'/>
+    </ttvLabel>
+    <ttvLabel text='as' e='204' id='a16' s='202'>
+      <ttvMotion y1='80' x1='172' y2='80' x2='172' a1='0.0' e='linear' a2='1.0' t1='2250' t2='2300'/>
+      <ttvMotion y1='80' x1='172' y2='80' x2='172' a1='1.0' a2='0.0' t1='2400' t2='2500'/>
+    </ttvLabel>
+    <ttvLabel text=' just ' e='210' id='a17' s='204'>
+      <ttvMotion y1='80' x1='193' y2='80' x2='193' a1='0.0' a2='1.0' t1='2250' t2='2350'/>
+      <ttvMotion y1='80' x1='193' y2='80' x2='193' a1='1.0' a2='0.0' t1='2400' t2='2500'/>
+    </ttvLabel>
+    <ttvLabel text='as' e='212' id='a18' s='210'>
+      <ttvMotion y1='80' x1='172' y2='80' x2='245' a1='0.0' e='linear' a2='1.0' t1='2250' t2='2300'/>
+      <ttvMotion y1='80' x1='245' y2='80' x2='245' a1='1.0' a2='0.0' t1='2400' t2='2500'/>
+    </ttvLabel>
+    <ttvLabel text=' fair' e='219' id='a19' s='212'>
+      <ttvMotion y1='80' x1='266' y2='80' x2='266' a1='0.0' a2='1.0' t1='2250' t2='2350'/>
+      <ttvMotion y1='80' x1='266' y2='80' x2='266' a1='1.0' a2='0.0' t1='2400' t2='2500'/>
+    </ttvLabel>
+    <ttvLabel text='and having perhaps ' e='238' id='a20' s='219'>
+      <ttvMotion y1='80' x1='132' y2='80' x2='132' a1='0.0' a2='1.0' t1='2450' t2='2550'/>
+      <ttvMotion y1='80' x1='132' y2='80' x2='132' a1='1.0' a2='0.0' t1='2700' t2='2800'/>
+    </ttvLabel>
+    <ttvLabel text='the better claim' e='256' id='a21' s='238'>
+      <ttvMotion y1='140' x1='156' y2='140' x2='156' a1='0.0' a2='1.0' t1='2550' t2='2650'/>
+      <ttvMotion y1='140' x1='156' y2='140' x2='156' a1='1.0' a2='0.0' t1='2700' t2='2800'/>
+    </ttvLabel>
+    <ttvLabel text='because it was grassy ' e='278' id='a22' s='256'>
+      <ttvMotion y1='80' x1='124' y2='80' x2='124' a1='0.0' a2='1.0' t1='2750' t2='2850'/>
+      <ttvMotion y1='80' x1='124' y2='80' x2='124' a1='1.0' a2='0.0' t1='3000' t2='3100'/>
+    </ttvLabel>
+    <ttvLabel text='and wanted wear' e='295' id='a23' s='278'>
+      <ttvMotion y1='140' x1='149' y2='140' x2='149' a1='0.0' a2='1.0' t1='2850' t2='2950'/>
+      <ttvMotion y1='140' x1='149' y2='140' x2='149' a1='1.0' a2='0.0' t1='3000' t2='3100'/>
+    </ttvLabel>
+    <ttvLabel text='though as for that ' e='314' id='a24' s='295'>
+      <ttvMotion y1='80' x1='140' y2='80' x2='140' a1='0.0' a2='1.0' t1='3050' t2='3150'/>
+      <ttvMotion y1='80' x1='140' y2='80' x2='140' a1='1.0' a2='0.0' t1='3200' t2='3300'/>
+    </ttvLabel>
+    <ttvLabel text='the passing there' e='332' id='a25' s='314'>
+      <ttvMotion y1='80' x1='149' y2='80' x2='149' a1='0.0' a2='1.0' t1='3250' t2='3350'/>
+      <ttvMotion y1='80' x1='149' y2='80' x2='149' a1='1.0' a2='0.0' t1='3800' t2='3900'/>
+    </ttvLabel>
+    <ttvLabel text='had worn them ' e='346' id='a26' s='332'>
+      <ttvMotion y1='140' x1='154' y2='140' x2='154' a1='0.0' a2='1.0' t1='3350' t2='3450'/>
+      <ttvMotion y1='140' x1='154' y2='140' x2='154' a1='1.0' a2='0.0' t1='3800' t2='3900'/>
+    </ttvLabel>
+    <ttvLabel text='really ' e='353' id='a27' s='346'>
+      <ttvMotion y1='200' x1='208' y2='200' x2='208' a1='0.0' a2='1.0' t1='3450' t2='3550'/>
+      <ttvMotion y1='200' x1='208' y2='200' x2='208' a1='1.0' a2='0.0' t1='3800' t2='3900'/>
+    </ttvLabel>
+    <ttvLabel text='about the same' e='371' id='a28' s='353'>
+      <ttvMotion y1='260' x1='158' y2='260' x2='158' a1='0.0' a2='1.0' t1='3550' t2='3650'/>
+      <ttvMotion y1='260' x1='158' y2='260' x2='158' a1='1.0' a2='0.0' t1='3800' t2='3900'/>
+    </ttvLabel>
+  </ttvVerse>
+  <ttvVerse e='553' type='primitive' s='0'>
+    <ttvLabel text='and both ' e='380' id='a29' s='371'>
+      <ttvMotion y1='80' x1='188' y2='80' x2='188' a1='0.0' a2='1.0' t1='150' t2='250'/>
+      <ttvMotion y1='80' x1='188' y2='80' x2='188' a1='1.0' a2='0.0' t1='500' t2='600'/>
+    </ttvLabel>
+    <ttvLabel text='that morning ' e='393' id='a30' s='380'>
+      <ttvMotion y1='140' x1='166' y2='140' x2='166' a1='0.0' a2='1.0' t1='250' t2='350'/>
+      <ttvMotion y1='140' x1='166' y2='140' x2='166' a1='1.0' a2='0.0' t1='500' t2='600'/>
+    </ttvLabel>
+    <ttvLabel text='equally lay' e='405' id='a31' s='393'>
+      <ttvMotion y1='200' x1='184' y2='200' x2='184' a1='0.0' a2='1.0' t1='350' t2='450'/>
+      <ttvMotion y1='200' x1='184' y2='200' x2='184' a1='1.0' a2='0.0' t1='500' t2='600'/>
+    </ttvLabel>
+    <ttvLabel text='in leaves ' e='415' id='a32' s='405'>
+      <ttvMotion y1='80' x1='191' y2='80' x2='191' a1='0.0' a2='1.0' t1='550' t2='650'/>
+      <ttvMotion y1='80' x1='191' y2='80' x2='191' a1='1.0' a2='0.0' t1='900' t2='1000'/>
+    </ttvLabel>
+    <ttvLabel text='no step ' e='423' id='a33' s='415'>
+      <ttvMotion y1='140' x1='197' y2='140' x2='197' a1='0.0' a2='1.0' t1='650' t2='750'/>
+      <ttvMotion y1='140' x1='197' y2='140' x2='197' a1='1.0' a2='0.0' t1='900' t2='1000'/>
+    </ttvLabel>
+    <ttvLabel text='had trodden black' e='442' id='a34' s='423'>
+      <ttvMotion y1='200' x1='143' y2='200' x2='143' a1='0.0' a2='1.0' t1='750' t2='850'/>
+      <ttvMotion y1='200' x1='143' y2='200' x2='143' a1='1.0' a2='0.0' t1='900' t2='1000'/>
+    </ttvLabel>
+    <ttvLabel text='oh ' e='446' id='a35' s='442'>
+      <ttvMotion y1='80' x1='142' y2='80' x2='142' a1='0.0' a2='1.0' t1='950' t2='1050'/>
+      <ttvMotion y1='80' x1='142' y2='80' x2='142' a1='1.0' a2='0.0' t1='1200' t2='1300'/>
+    </ttvLabel>
+    <ttvLabel text='I kept the first' e='462' id='a36' s='446'>
+      <ttvMotion y1='80' x1='177' y2='80' x2='177' a1='0.0' e='linear' a2='1.0' t1='1000' t2='1100'/>
+      <ttvMotion y1='80' x1='177' y2='80' x2='177' a1='1.0' a2='0.0' t1='1200' t2='1300'/>
+    </ttvLabel>
+    <ttvLabel text=' ' e='463' id='a37' s='462'>
+      <ttvMotion y1='80' x1='331' y2='80' x2='331' a1='0.0' a2='1.0' t1='950' t2='1050'/>
+      <ttvMotion y1='80' x1='331' y2='80' x2='331' a1='1.0' a2='0.0' t1='1200' t2='1300'/>
+    </ttvLabel>
+    <ttvLabel text='for another day ' id='a37'>
+      <ttvMotion y1='140' x1='151' y2='140' x2='151' a1='0.0' a2='1.0' t1='1050' t2='1150'/>
+      <ttvMotion y1='140' x1='151' y2='140' x2='151' a1='1.0' a2='0.0' t1='1200' t2='1300'/>
+    </ttvLabel>
+    <ttvLabel text='!' e='480' id='a38' s='478'>
+      <ttvMotion y1='140' x1='323' y2='140' x2='323' a1='0.0' e='linear' a2='1.0' t1='1100' t2='1150'/>
+      <ttvMotion y1='140' x1='323' y2='140' x2='323' a1='1.0' a2='0.0' t1='1200' t2='1300'/>
+    </ttvLabel>
+    <ttvLabel text='yet knowing how ' e='496' id='a39' s='480'>
+      <ttvMotion y1='80' x1='143' y2='80' x2='143' a1='0.0' a2='1.0' t1='1250' t2='1350'/>
+      <ttvMotion y1='80' x1='143' y2='80' x2='143' a1='1.0' a2='0.0' t1='1500' t2='1600'/>
+    </ttvLabel>
+    <ttvLabel text='way leads on to way' e='517' id='a40' s='496'>
+      <ttvMotion y1='140' x1='132' y2='140' x2='132' a1='0.0' a2='1.0' t1='1350' t2='1450'/>
+      <ttvMotion y1='140' x1='132' y2='140' x2='132' a1='1.0' a2='0.0' t1='1500' t2='1600'/>
+    </ttvLabel>
+    <ttvLabel text='I doubted ' e='527' id='a41' s='517'>
+      <ttvMotion y1='80' x1='183' y2='80' x2='183' a1='0.0' a2='1.0' t1='1550' t2='1650'/>
+      <ttvMotion y1='80' x1='183' y2='80' x2='183' a1='1.0' a2='0.0' t1='2000' t2='2100'/>
+    </ttvLabel>
+    <ttvLabel text='if I should ever ' e='544' id='a42' s='527'>
+      <ttvMotion y1='140' x1='154' y2='140' x2='154' a1='0.0' a2='1.0' t1='1650' t2='1750'/>
+      <ttvMotion y1='140' x1='154' y2='140' x2='154' a1='1.0' a2='0.0' t1='2000' t2='2100'/>
+    </ttvLabel>
+    <ttvLabel text='come back' e='556' id='a43' s='544'>
+      <ttvMotion y1='200' x1='181' y2='200' x2='181' a1='0.0' a2='1.0' t1='1750' t2='1850'/>
+      <ttvMotion y1='200' x1='181' y2='200' x2='181' a1='1.0' a2='0.0' t1='2000' t2='2100'/>
+    </ttvLabel>
+  </ttvVerse>
+  <ttvVerse e='730' type='primitive' s='0'>
+    <ttvLabel text='I shall be telling ' e='575' id='a44' s='556'>
+      <ttvMotion y1='80' x1='152' y2='80' x2='152' a1='0.0' a2='1.0' t1='150' t2='250'/>
+      <ttvMotion y1='80' x1='152' y2='80' x2='152' a1='1.0' a2='0.0' t1='400' t2='500'/>
+    </ttvLabel>
+    <ttvLabel text='this with a sigh' e='592' id='a45' s='575'>
+      <ttvMotion y1='140' x1='160' y2='140' x2='160' a1='0.0' a2='1.0' t1='250' t2='350'/>
+      <ttvMotion y1='140' x1='160' y2='140' x2='160' a1='1.0' a2='0.0' t1='400' t2='500'/>
+    </ttvLabel>
+    <ttvLabel text='somewhere' e='601' id='a46' s='592'>
+      <ttvMotion y1='80' x1='178' y2='80' x2='178' a1='0.0' a2='1.0' t1='450' t2='550'/>
+      <ttvMotion y1='80' x1='178' y2='80' x2='178' a1='1.0' a2='0.0' t1='800' t2='900'/>
+    </ttvLabel>
+    <ttvLabel text='ages' e='606' id='a47' s='602'>
+      <ttvMotion y1='140' x1='164' y2='140' x2='164' a1='0.0' e='linear' a2='1.0' t1='550' t2='600'/>
+      <ttvMotion y1='140' x1='164' y2='140' x2='164' a1='1.0' a2='0.0' t1='800' t2='900'/>
+    </ttvLabel>
+    <ttvLabel text=' and ' e='611' id='a48' s='606'>
+      <ttvMotion y1='140' x1='210' y2='140' x2='210' a1='0.0' a2='1.0' t1='550' t2='650'/>
+      <ttvMotion y1='140' x1='210' y2='140' x2='210' a1='1.0' a2='0.0' t1='800' t2='900'/>
+    </ttvLabel>
+    <ttvLabel text='ages' e='615' id='a49' s='611'>
+      <ttvMotion y1='140' x1='164' y2='140' x2='263' a1='0.0' e='linear' a2='1.0' t1='550' t2='600'/>
+      <ttvMotion y1='140' x1='263' y2='140' x2='263' a1='1.0' a2='0.0' t1='800' t2='900'/>
+    </ttvLabel>
+    <ttvLabel text=' ' e='616' id='a50' s='615'>
+      <ttvMotion y1='140' x1='309' y2='140' x2='309' a1='0.0' a2='1.0' t1='550' t2='650'/>
+      <ttvMotion y1='140' x1='309' y2='140' x2='309' a1='1.0' a2='0.0' t1='800' t2='900'/>
+    </ttvLabel>
+    <ttvLabel text='hence' e='623' id='a51' s='616'>
+      <ttvMotion y1='200' x1='208' y2='200' x2='208' a1='0.0' a2='1.0' t1='650' t2='750'/>
+      <ttvMotion y1='200' x1='208' y2='200' x2='208' a1='1.0' a2='0.0' t1='800' t2='900'/>
+    </ttvLabel>
+    <ttvLabel text='two roads diverged ' e='642' id='a52' s='623'>
+      <ttvMotion y1='80' x1='133' y2='80' x2='133' a1='0.0' a2='1.0' t1='850' t2='950'/>
+      <ttvMotion y1='80' x1='133' y2='80' x2='133' a1='1.0' a2='0.0' t1='1200' t2='1300'/>
+    </ttvLabel>
+    <ttvLabel text='in a wood' e='652' id='a53' s='642'>
+      <ttvMotion y1='140' x1='187' y2='140' x2='187' a1='0.0' a2='1.0' t1='950' t2='1050'/>
+      <ttvMotion y1='140' x1='187' y2='140' x2='187' a1='1.0' a2='0.0' t1='1200' t2='1300'/>
+    </ttvLabel>
+    <ttvLabel text='and I' e='658' id='a54' s='653'>
+      <ttvMotion y1='200' x1='212' y2='200' x2='212' a1='0.0' a2='1.0' t1='1050' t2='1150'/>
+      <ttvMotion y1='200' x1='212' y2='200' x2='212' a1='1.0' a2='0.0' t1='1200' t2='1300'/>
+    </ttvLabel>
+    <ttvLabel text='I took the one ' e='676' id='a55' s='661'>
+      <ttvMotion y1='80' x1='159' y2='80' x2='159' a1='0.0' a2='1.0' t1='1250' t2='1350'/>
+      <ttvMotion y1='80' x1='159' y2='80' x2='159' a1='1.0' a2='0.0' t1='1500' t2='1600'/>
+    </ttvLabel>
+    <ttvLabel text='less traveled by' e='694' id='a56' s='676'>
+      <ttvMotion y1='140' x1='158' y2='140' x2='158' a1='0.0' a2='1.0' t1='1350' t2='1450'/>
+      <ttvMotion y1='140' x1='158' y2='140' x2='158' a1='1.0' a2='0.0' t1='1500' t2='1600'/>
+    </ttvLabel>
+    <ttvLabel text='and that has made ' e='712' id='a57' s='694'>
+      <ttvMotion y1='80' x1='139' y2='80' x2='139' a1='0.0' a2='1.0' t1='1550' t2='1650'/>
+      <ttvMotion y1='80' x1='139' y2='80' x2='139' a1='1.0' a2='0.0' t1='1900' t2='2000'/>
+    </ttvLabel>
+    <ttvLabel text='all the difference' e='731' id='a58' s='712'>
+      <ttvMotion y1='140' x1='150' y2='140' x2='150' a1='0.0' a2='1.0' t1='1650' t2='1750'/>
+      <ttvMotion y1='140' x1='150' y2='140' x2='150' a1='1.0' a2='0.0' t1='1900' t2='2000'/>
+    </ttvLabel>
+  </ttvVerse>
+  
+<ttvVerse type='generatedCitation'>
+      <ttvLabel text='The Road Not Taken' type='Title' fontSize='48'>
+      <ttvMotion y1='75' x1='41' y2='75' x2='41' a1='0.0' e='' a2='1.0' t1='100' t2='200'/>
+      <ttvMotion y1='75' x1='41' y2='75' x2='41' a1='1.0' e='' a2='1.0' t1='700' t2='800'/>
+    </ttvLabel>
+    <ttvLabel fontStyle='italic' text='Robert Frost' type='Author' fontSize='32'>
+      <ttvMotion y1='150' x1='172' y2='150' x2='172' a1='0.0' a2='1.0' t1='300' t2='400'/>
+      <ttvMotion y1='150' x1='172' y2='150' x2='172' a1='1.0' a2='1.0' t1='700' t2='800'/>
+    </ttvLabel>
+ 
+    <ttvLogo scale='1.3' type='static'>
+      <ttvMotion y1='200' x1='0' y2='200' x2='0' a1='1.0' a2='1.0' t1='400' t2='800'/>
+    </ttvLogo>
+</ttvVerse></ttvFlow></flow>
