@@ -14,4 +14,10 @@ $(document).ready(function(){
 	PopulateAllCollections();
 	SetupCallbacks();	// register for rotation events etc
     SetupScreen();
+
+	// set up listeners for ui events
+	$("#favoritespage").on("pagebeforeshow", function(event) { PopulateFavoritesList(); } );
+	$("#collectionspage").on("pagebeforeshow", function(event) { PopulateCollectionsList(); } );
+	$("#poemlistpage").on("pagebeforeshow", function(event) { PopulateAllFlowsList(); } );
 });
+
