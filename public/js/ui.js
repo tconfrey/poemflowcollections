@@ -34,8 +34,8 @@ function PopulateCollectionsList() {
     // populate the collections page in the ui
     
     $("#allcollections").empty();
-    for (var i = 0; i < AllCollections.length; i++) {
-        var collection = AllCollections[i];
+    for (var i = 0; i < Collections.length; i++) {
+        var collection = Collections[i];
         if (collection) {
 			var child = "<li onclick='CurrentCollection=\""+i+"\";ShowCurrentCollection();'><a href='#collectionpage' data-transition='slide'><div>"+TrimTitle(collection.name, titlechars)+"</div></a></li>";
 			$("#allcollections").append(child);
@@ -73,11 +73,10 @@ function PopulateFavoritesList () {
 
 function ShowCurrentCollection(){
     // populate the correct flows into the collection window
-    var collection = AllCollections[parseInt(CurrentCollection)];
-    var collectionobj = GetCollectionByName(collection.name);       // This is really hooky the arrays should be refactored.
+    var collection = Collections[parseInt(CurrentCollection)];
     $("#collectionname").text(collection.name);
-    $("#aboutcollectioncontent").text(collectionobj.longdescription);
-    $("#abouteditor").text("Editor: " + collectionobj.editor);
+    $("#aboutcollectioncontent").text(collection.longdescription);
+    $("#abouteditor").text("Editor: " + collection.editor);
     $("#collectionflows").empty();
     for (var i=0; i<collection.flows.length; i++) {
         var fid = collection.flows[i];
@@ -117,16 +116,14 @@ function LoadCurrentFlow() {
 }
 
 function PoemFooterFav() {
-    $("#poemfooter").data('icon', 'check');
-    $("#poemfooter .ui-icon").addClass("ui-icon-check").removeClass("ui-icon-star");
+	$('#poemfooter').buttonMarkup({ icon: "heart" });
+/*
     // the button active class changes the color, without below the footer change on first click then never thereafter
     $("#poemfooter").addClass("ui-btn-active");
+*/
 }
 function PoemFooterUnFav() {
-    $("#poemfooter").data('icon', 'star');
-    $("#poemfooter .ui-icon").addClass("ui-icon-star").removeClass("ui-icon-check");
-    // the button active class changes the color, without below the footer change on first click then never thereafter
-    $("#poemfooter").removeClass("ui-btn-active");
+	$('#poemfooter').buttonMarkup({ icon: "star" });
 }
 
 var SmallScreenFont = {'smallest' : '12px', 'small' : '14px', 'medium' : '18px', 'large' : '21px', 'largest' : '24px'};

@@ -56,9 +56,9 @@ function CollectionExists(name) {
 function CollectionId(name) {
     // Do we already have this collection
     
-    for (var i = 0; i < AllCollections.length; i++) {
-        if ((AllCollections[i]) && (AllCollections[i].name == name)) {
-            var id = AllCollections[i].id;
+    for (var i = 0; i < Collections.length; i++) {
+        if ((Collections[i]) && (Collections[i].name == name)) {
+            var id = Collections[i].id;
             return id;
         }
     }
@@ -170,8 +170,8 @@ function InteractWithAppStore(collection) {
     UpdateCollectionsToLocalStorage();
     
     // Everything else should flow from the populate DB functions via events
-    Db.transaction(PopulateCollectionsToDB, TransactionError, PopulateFlowsToFilesystem);
-   // alert("Updating your library with your new Collection");
+    //Db.transaction(PopulateCollectionsToDB, TransactionError, PopulateFlowsToFilesystem);
+	alert("Updating your library with your new Collection");
     $.mobile.loading('hide');
     PopulateCollectionsList();
     PopulateStore();

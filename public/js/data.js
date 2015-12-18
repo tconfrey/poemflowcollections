@@ -55,14 +55,6 @@ function PopulateAllFlows() {
     PopulateFavoritesList();
 }
 
-function PopulateAllCollections() {
-    // copy collections from localStorage
-	
-	AllCollections = JSON.parse(window.localStorage.getItem('collections'));
-	PopulateCollectionsList();
-}
-
-
 /* Flow reading function */
 var CurrentXML;
 function ReadFileXML(filename) {
@@ -76,17 +68,6 @@ function ReadFileXML(filename) {
 			SetupFlow();
 		}
     });
-}
-
-
-function GetCollectionByName(name) {
-    // loop thru Collections array and return named collection. Used to translate between AllCollections which is populated from DB and Collections which is the json
-    for (var i = 0; i < Collections.length; i++) {
-        if (Collections[i] && (Collections[i].name == name)) {
-            return Collections[i];
-        }
-    }
-    return Collections[0];
 }
 
 
