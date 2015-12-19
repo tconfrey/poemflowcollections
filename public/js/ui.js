@@ -2,6 +2,15 @@
 
 var CurrentFlow = 0;
 var titlechars = 30;
+
+function TrimTitle(title, size) {
+    // titles should be no more than size chars
+    if (title.length > size)
+        return title.substring(0,size) + "...";
+    return title;
+}
+
+var ShowOnlyFavs = false;
 function PopulateAllFlowsList () {
     // populate the list of poems
     var width = parseInt($(window).width());
@@ -10,7 +19,9 @@ function PopulateAllFlowsList () {
     for (var i = 0; i < AllFlows.length; i++) {
         var flow = AllFlows[i];
         var fid = flow.id;
-        var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
+		var favspan = (flow.favorite) ? "<span class='ui-btn-icon-notext ui-icon-heart' style='position:absolute; right:30px;' />" : "";			
+		var favclass = (flow.favorite) ? "class='fav'" : "class='notfav'";
+        var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'"+favclass+"><div style='width:100%;'>"+TrimTitle(flow.title, titlechars)+favspan+"</div><div id='poet'>"+flow.author+"</div></li>";
         $("#allflows").append(child).css( 'cursor', 'pointer' );
     }
     console.log("created flow list items, now refreshing view:");
@@ -20,15 +31,25 @@ function PopulateAllFlowsList () {
         app.allflowinitialized = true;
         $("#poemlistpage").bind("pageshow", function(event, data) {$("#poembackbutton").attr("href", "#poemlistpage"); });
     }
+	if (ShowOnlyFavs) {
+		$("#allflows .notfav").slideUp(600);
+	} else {
+		$("#allflows .notfav").slideDown(600);
+	}
     console.log("view refreshed");
 }
 
-function TrimTitle(title, size) {
-    // titles should be no more than size chars
-    if (title.length > size)
-        return title.substring(0,size) + "...";
-    return title;
+function FilterFavorites() {
+	// filter in or out the favs in poem list
+	ShowOnlyFavs = !ShowOnlyFavs;
+	if (ShowOnlyFavs) {
+		$("#allflows .notfav").slideUp(600);
+	} else {
+		$("#allflows .notfav").slideDown(600);
+		$.mobile.activePage.focus();
+	}
 }
+
 
 function PopulateCollectionsList() {
     // populate the collections page in the ui

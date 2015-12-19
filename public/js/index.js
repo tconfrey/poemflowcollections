@@ -13,7 +13,7 @@ $(document).ready(function(){
     SetupScreen();
 
 	// set up listeners for ui events
-	$("#favoritespage").on("pagebeforeshow", function(event) { PopulateFavoritesList(); } );
+	$("#storepage").on("pagebeforeshow", function(event) { PopulateStore(); } );
 	$("#collectionspage").on("pagebeforeshow", function(event) { PopulateCollectionsList(); } );
 	$("#poemlistpage").on("pagebeforeshow", function(event) { PopulateAllFlowsList(); } );
 });

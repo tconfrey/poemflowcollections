@@ -78,11 +78,7 @@ var _PopulateStore = function (collections) {
 			$("#store").append(child).css( 'cursor', 'pointer' );
 		}
     }
-    if (app.storeinitialized) {  // refresh ui on subsequent updates
-        $("#store").listview("refresh");
-    }  else {
-        app.storeinitialized = true;
-    }
+    $("#store").listview("refresh");
     $.mobile.loading('hide');
     $.mobile.changePage($("#storepage"));
 }
@@ -145,13 +141,14 @@ function ShowPreviewCollection(collection){
         var child = "<li onclick='CurrentFlow="+flow.id+";LoadCurrentFlow();'><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
         $("#previewflows").append(child).css( 'cursor', 'pointer' );
     }
-/*
+
     if (app.previewinitialized) {  // refresh ui on subsequent updates
         $("#previewflows").listview("refresh");
     }  else {
         app.previewinitialized = true;
     }
-*/
+
+	// Todo - this will bind multiple events to the button, need to remove other events first
     $("#previewpage").bind("pageshow", function(event, data) {$("#poembackbutton").attr("href", "#previewpage"); });
 }
 

@@ -36,9 +36,11 @@
 			
 			<div data-role="content">
 				<div data-role="controlgroup" style="border-style: double;">
-					<a href="#poemlistpage" data-role="button"  style="height:50px">Poems</a>
-					<a href="#collectionspage" data-role="button"  style="height:50px">Collections</a>
-					<a href="#favoritespage" data-role="button"  style="height:50px" >Favorites</a>
+					<a href="#poemlistpage" data-role="button"  style="height:50px">My Poems</a>
+					<a href="#collectionspage" data-role="button"  style="height:50px">My Collections</a>
+
+					<a href="#storepage" data-role="button"  style="height:50px">Public Library</a>
+
 				</div><!-- /controlgroup -->
 			</div><!-- /content -->
 			
@@ -49,6 +51,8 @@
 			<div data-role="header"  data-position="fixed">
 				<div><h2>All Poems</h2></div>
 				<a href="#home" data-role="button" data-icon="back" data-inline="true" data-mini="true"  data-iconpos="notext">Back</a>
+
+				<a href="#" id="filterbutton" data-role="button" data-icon="heart" data-inline="true" data-mini="true"  data-iconpos="notext" onClick="FilterFavorites();">favs</a>
 			</div><!-- /header -->
 			
 			<div data-role="content">
@@ -145,7 +149,6 @@
 			<div data-role="footer" data-position="fixed">
 				<div data-role="navbar">
 					<ul>
-						<li ><a id="storelink" data-icon="grid" data-role="button" onClick='PopulateStore()'>Store</a></li>
 						<li ><a data-icon="gear" data-role="button"  href="#preferencespage">Settings</a></li>
 					</ul>
 				</div>
