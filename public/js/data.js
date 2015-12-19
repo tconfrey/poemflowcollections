@@ -121,13 +121,15 @@ function ProcessLocalStorage() {
 var CurrentXML;
 function ReadFileXML(filename) {
 	console.log("trying to get "+filename);
+    $.mobile.loading('show');
 	$.ajax({
         type: "GET",
-		url: "flows/" + filename,
+		url: "/flows/" + filename,
 		dataType: "xml",
 		success: function(thexml) {
 			CurrentXML = thexml;
 			SetupFlow();
+			$.mobile.loading('hide');
 		}
     });
 }

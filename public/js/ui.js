@@ -63,7 +63,7 @@ function PopulateFavoritesList () {
 		}
     }
     if (app.favoritesinitialized && $("#favoriteflows").hasClass("ui-listview")) {  // refresh ui on subsequent updates
-        $("#favoriteflows").listview("refresh");
+		$("#favoriteflows").listview("refresh");
     }  else {
         app.favoritesinitialized = true;
         $("#favoritespage").bind("pageshow", function(event, data) {$("#poembackbutton").attr("href", "#favoritespage"); });
@@ -97,21 +97,22 @@ function GetFlowById(id) {
             return AllFlows[i];
         }
     }
-    return AllFlows[0];     // return something
+    return false;     // return something
 }
 
 function LoadCurrentFlow() {
     // Fun with Flows...
     var flow = GetFlowById(CurrentFlow);
-    console.log("Current Flow = "+flow.title);
-    $("#poemname").text(TrimTitle(flow.title, 25));
-    ReadFileXML(flow.id+".xml");
-    if (flow.favorite) {
-        PoemFooterFav();
-    }
-    else {
-        PoemFooterUnFav();
-    }
+	if (flow) {					// might not be loaded
+		$("#poemname").text(TrimTitle(flow.title, 25));
+		if (flow.favorite) {
+			PoemFooterFav();
+		}
+		else {
+			PoemFooterUnFav();
+		}
+	}
+    ReadFileXML(CurrentFlow+".xml");
 }
 
 function PoemFooterFav() {

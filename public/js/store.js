@@ -73,9 +73,9 @@ var _PopulateStore = function (collections) {
 		var prefix = (collections[i].price == "Free") ? "" : "$";
 		var suffix = (collections[i].price == "Free") ? "!" : "";
         var price = CollectionId(collections[i].name) ? "<i>Purchased</i>" : prefix + collections[i].price + suffix;
-        var child = "<li onclick='PreviewCollection(\"" + collections[i].name + "\")'><div>"+collections[i].name+"</div><div id='price'>"+price+"</div><div id='description'>"+ collections[i].summary + "</div></li>";
+        var child = "<li onclick='PreviewCollection(\"" + collections[i].name + "\")'><div>"+collections[i].name+"</div><!--<div id='price'>"+price+"</div>--><div id='description'>"+ collections[i].summary + "</div></li>";
         if (collections[i].showinstore) {
-			$("#store").append(child);
+			$("#store").append(child).css( 'cursor', 'pointer' );
 		}
     }
     if (app.storeinitialized) {  // refresh ui on subsequent updates
@@ -119,7 +119,7 @@ function PreviewCollection(name) {
 
 function PurchaseCollection() {
     // Respond to a purchase request
-    var confirmation = (PreviewedCollection.price == "Free") ? "Download this free collection?" : "Your account will be debited by: $"+PreviewedCollection.price;
+    var confirmation = "Download this collection?";
 	$("#purchaseconfirmation").text(confirmation);
 	$( "#popupDialog" ).popup("open");
 }
@@ -142,14 +142,17 @@ function ShowPreviewCollection(collection){
     $("#previewflows").empty();
     for (var i=0; i<collection.flows.length; i++) {
         var flow = collection.flows[i];
-        var child = "<li><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
-        $("#previewflows").append(child);
+        var child = "<li onclick='CurrentFlow="+flow.id+";LoadCurrentFlow();'><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
+        $("#previewflows").append(child).css( 'cursor', 'pointer' );
     }
+/*
     if (app.previewinitialized) {  // refresh ui on subsequent updates
         $("#previewflows").listview("refresh");
     }  else {
         app.previewinitialized = true;
     }
+*/
+    $("#previewpage").bind("pageshow", function(event, data) {$("#poembackbutton").attr("href", "#previewpage"); });
 }
 
 
