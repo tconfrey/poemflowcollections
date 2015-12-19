@@ -44,25 +44,13 @@ function SetUpLinks(ipadad, iphonead, dest) {
 	$("#adlink").attr("href", dest);
 }
 
-function CollectionExists(name) {
-    // Do we already have this collection
+function CollectionId(name) {
+    // Do we already have this collection, if so return its Id
     
     for (var i = 0; i < Collections.length; i++) {
-        if (Collections[i].name == name) return true;
+        if (Collections[i].name == name) return i;
     }
     return false;
-}
-
-function CollectionId(name) {
-    // Do we already have this collection
-    
-    for (var i = 0; i < Collections.length; i++) {
-        if ((Collections[i]) && (Collections[i].name == name)) {
-            var id = Collections[i].id;
-            return id;
-        }
-    }
-    return -1;
 }
 
 
@@ -84,7 +72,7 @@ var _PopulateStore = function (collections) {
     for (var i = 0; i < collections.length; i++) {
 		var prefix = (collections[i].price == "Free") ? "" : "$";
 		var suffix = (collections[i].price == "Free") ? "!" : "";
-        var price = CollectionExists(collections[i].name) ? "<i>Purchased</i>" : prefix + collections[i].price + suffix;
+        var price = CollectionId(collections[i].name) ? "<i>Purchased</i>" : prefix + collections[i].price + suffix;
         var child = "<li onclick='PreviewCollection(\"" + collections[i].name + "\")'><div>"+collections[i].name+"</div><div id='price'>"+price+"</div><div id='description'>"+ collections[i].summary + "</div></li>";
         if (collections[i].showinstore) {
 			$("#store").append(child);
@@ -107,9 +95,9 @@ function PreviewCollection(name) {
         alert("Can't access Store offline.");
         return;
     }
-    if (CollectionExists(name)) {
+    if (CollectionId(name)) {
         CurrentCollection = CollectionId(name);         // collection id
-        ShowCurrentCollection();                            // we own it, so show it!
+        ShowCurrentCollection();                        // we own it, so show it!
         var cp = $("#collectionpage");
         $.mobile.changePage(cp);
         return;
@@ -117,7 +105,8 @@ function PreviewCollection(name) {
     
     var collection = null;
     for (var i = 0; i < StoreCollections.length; i++) {
-        if (StoreCollections[i].name == name) collection = StoreCollections[i];
+        if (StoreCollections[i].name == name) 
+			collection = StoreCollections[i];
     }
     if (!collection) return;
 
@@ -139,7 +128,7 @@ function ActuallyPurchase() {
 	// Purchase button in popup was selected
 	$( "#popupDialog" ).popup("close");
 	$.mobile.loading('show');
-    setTimeout(function(){InteractWithAppStore(PreviewedCollection);}, 10000); // pretend for now
+    setTimeout(function(){InteractWithAppStore(PreviewedCollection);}, 1000); // pretend for now
 }
 
 
@@ -163,16 +152,33 @@ function ShowPreviewCollection(collection){
     }
 }
 
+
+function arrayUnique(array) {
+	// Utility needed below
+    var a = array.concat();
+    for(var i=0; i<a.length; ++i) {
+        for(var j=i+1; j<a.length; ++j) {
+            if(a[i] === a[j])
+                a.splice(j--, 1);
+        }
+    }
+    return a;
+}
+
 function InteractWithAppStore(collection) {
     /* Do app Store stuff here, and then... */
     
     Collections.push(collection);
     UpdateCollectionsToLocalStorage();
+
+	// Could be duplicate flows
+	var newallflows = arrayUnique(AllFlows.concat(collection.flows));
+	AllFlows = newallflows;
+	UpdateFlowsToLocalStorage();
     
-    // Everything else should flow from the populate DB functions via events
-    //Db.transaction(PopulateCollectionsToDB, TransactionError, PopulateFlowsToFilesystem);
 	alert("Updating your library with your new Collection");
     $.mobile.loading('hide');
-    PopulateCollectionsList();
+//    PopulateCollectionsList();
+//    PopulateAllFlowsList();
     PopulateStore();
 }

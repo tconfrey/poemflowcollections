@@ -1,14 +1,13 @@
 // Do initial set up
 
-var AllFlows = new Array();
 var app = new Object();
 
 $(document).ready(function(){
     console.log("Device Ready. Opening DB...");
     $.mobile.loading('show');
 	ProcessLocalStorage();
-    AllFlows = [];
-	PopulateAllFlows();
+    PopulateAllFlowsList();
+    PopulateFavoritesList();
 	PopulateCollectionsList();
 	SetupCallbacks();	// register for rotation events etc
     SetupScreen();

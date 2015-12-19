@@ -11,7 +11,7 @@ function PopulateAllFlowsList () {
         var flow = AllFlows[i];
         var fid = flow.id;
         var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
-        $("#allflows").append(child);
+        $("#allflows").append(child).css( 'cursor', 'pointer' );
     }
     console.log("created flow list items, now refreshing view:");
     if (app.allflowinitialized) { // refresh ui on subsequent updates
@@ -59,7 +59,7 @@ function PopulateFavoritesList () {
 		if (flow.favorite) {
 			var fid = flow.id;
 			var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
-			$("#favoriteflows").append(child);
+			$("#favoriteflows").append(child).css( 'cursor', 'pointer' );
 		}
     }
     if (app.favoritesinitialized && $("#favoriteflows").hasClass("ui-listview")) {  // refresh ui on subsequent updates
@@ -79,10 +79,9 @@ function ShowCurrentCollection(){
     $("#abouteditor").text("Editor: " + collection.editor);
     $("#collectionflows").empty();
     for (var i=0; i<collection.flows.length; i++) {
-        var fid = collection.flows[i];
-        var flow = GetFlowById(fid);
-        var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
-        $("#collectionflows").append(child);
+        var flow = collection.flows[i];
+        var child = "<li onclick='CurrentFlow="+flow.id+";LoadCurrentFlow();'><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
+        $("#collectionflows").append(child).css( 'cursor', 'pointer' );
     }
     if (app.collectioninitialized) {  // refresh ui on subsequent updates
         $("#collectionflows").listview("refresh");
