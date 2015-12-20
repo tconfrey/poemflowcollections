@@ -21,32 +21,27 @@ function PopulateAllFlowsList () {
         var fid = flow.id;
 		var favspan = (flow.favorite) ? "<span class='ui-btn-icon-notext ui-icon-heart' style='position:absolute; right:30px;' />" : "";			
 		var favclass = (flow.favorite) ? "class='fav'" : "class='notfav'";
-        var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'"+favclass+"><div style='width:100%;'>"+TrimTitle(flow.title, titlechars)+favspan+"</div><div id='poet'>"+flow.author+"</div></li>";
+        var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'"+favclass+"><div style='width:100%;'>"+TrimTitle(flow.title, titlechars)+favspan+"</div> <div id='poet'>"+flow.author+"</div>   </li>";
         $("#allflows").append(child).css( 'cursor', 'pointer' );
     }
-    console.log("created flow list items, now refreshing view:");
+
     if (app.allflowinitialized) { // refresh ui on subsequent updates
         $("#allflows").listview("refresh");
     } else {
         app.allflowinitialized = true;
         $("#poemlistpage").bind("pageshow", function(event, data) {$("#poembackbutton").attr("href", "#poemlistpage"); });
     }
-	if (ShowOnlyFavs) {
-		$("#allflows .notfav").slideUp(600);
-	} else {
-		$("#allflows .notfav").slideDown(600);
-	}
-    console.log("view refreshed");
+	FilterFavorites();
 }
 
 function FilterFavorites() {
 	// filter in or out the favs in poem list
-	ShowOnlyFavs = !ShowOnlyFavs;
 	if (ShowOnlyFavs) {
 		$("#allflows .notfav").slideUp(600);
+		$("#poemlistpage h2").text("Favorite Poems");
 	} else {
 		$("#allflows .notfav").slideDown(600);
-		$.mobile.activePage.focus();
+		$("#poemlistpage h2").text("All Poems");
 	}
 }
 
@@ -67,27 +62,6 @@ function PopulateCollectionsList() {
     } else {
         app.collectionlistinitialized = true;
         $("#collectionpage").bind("pageshow", function(event, data) {$("#poembackbutton").attr("href", "#collectionpage");});
-    }
-}
-
-
-function PopulateFavoritesList () {
-    // populate the list of poems
-    
-    $("#favoriteflows").empty();
-    for (var i = 0; i < AllFlows.length; i++) {
-        var flow = AllFlows[i];
-		if (flow.favorite) {
-			var fid = flow.id;
-			var child = "<li onclick='CurrentFlow="+fid+";LoadCurrentFlow();'><div>"+TrimTitle(flow.title, titlechars)+"</div><div id='poet'>"+flow.author+"</div></li>";
-			$("#favoriteflows").append(child).css( 'cursor', 'pointer' );
-		}
-    }
-    if (app.favoritesinitialized && $("#favoriteflows").hasClass("ui-listview")) {  // refresh ui on subsequent updates
-		$("#favoriteflows").listview("refresh");
-    }  else {
-        app.favoritesinitialized = true;
-        $("#favoritespage").bind("pageshow", function(event, data) {$("#poembackbutton").attr("href", "#favoritespage"); });
     }
 }
 
@@ -126,25 +100,17 @@ function LoadCurrentFlow() {
     var flow = GetFlowById(CurrentFlow);
 	if (flow) {					// might not be loaded
 		$("#poemname").text(TrimTitle(flow.title, 25));
-		if (flow.favorite) {
-			PoemFooterFav();
-		}
-		else {
-			PoemFooterUnFav();
-		}
+		SetFavStatus(flow);
 	}
     ReadFileXML(CurrentFlow+".xml");
 }
 
-function PoemFooterFav() {
-	$('#poemfooter').buttonMarkup({ icon: "heart" });
-/*
-    // the button active class changes the color, without below the footer change on first click then never thereafter
-    $("#poemfooter").addClass("ui-btn-active");
-*/
-}
-function PoemFooterUnFav() {
-	$('#poemfooter').buttonMarkup({ icon: "star" });
+function SetFavStatus(flow) {
+	if (flow.favorite) {
+		$("#favpoem").addClass("ui-focus");
+	} else {
+		$("#favpoem").removeClass("ui-focus");
+	}
 }
 
 var SmallScreenFont = {'smallest' : '12px', 'small' : '14px', 'medium' : '18px', 'large' : '21px', 'largest' : '24px'};

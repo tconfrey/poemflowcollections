@@ -7,14 +7,24 @@ $(document).ready(function(){
     $.mobile.loading('show');
 	ProcessLocalStorage();
     PopulateAllFlowsList();
-    PopulateFavoritesList();
-	PopulateCollectionsList();
-	SetupCallbacks();	// register for rotation events etc
+    PopulateCollectionsList();
     SetupScreen();
 
 	// set up listeners for ui events
 	$("#storepage").on("pagebeforeshow", function(event) { PopulateStore(); } );
 	$("#collectionspage").on("pagebeforeshow", function(event) { PopulateCollectionsList(); } );
 	$("#poemlistpage").on("pagebeforeshow", function(event) { PopulateAllFlowsList(); } );
+	
+    $(window).bind('orientationChange', function(event) {
+        checkOrientation();
+    });
+/*
+    $(window).bind('resize', function(event) {
+        checkOrientation();
+    });
+*/
+    $("#poemflow").click(function() {
+        if (paused) {UnPause();} else {Pause();}
+    });
 });
 

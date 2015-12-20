@@ -52,7 +52,7 @@
 				<div><h2>All Poems</h2></div>
 				<a href="#home" data-role="button" data-icon="back" data-inline="true" data-mini="true"  data-iconpos="notext">Back</a>
 
-				<a href="#" id="filterbutton" data-role="button" data-icon="heart" data-inline="true" data-mini="true"  data-iconpos="notext" onClick="FilterFavorites();">favs</a>
+				<a href="#" id="filterbutton" data-role="button" data-icon="heart" data-inline="true" data-mini="true"  data-iconpos="notext" onClick="ShowOnlyFavs = !ShowOnlyFavs; FilterFavorites(); ">favs</a>
 			</div><!-- /header -->
 			
 			<div data-role="content">
@@ -60,20 +60,6 @@
 			</div>
 			
 		</div><!-- /poemlistpage -->
-		
-		<div data-role="page" id="favoritespage">
-			
-			<div data-role="header"  data-position="fixed">
-				<div><h2>Favorites</h2></div>
-				<a href="#home" data-role="button" data-icon="back" data-inline="true" data-mini="true"  data-iconpos="notext">Back</a>
-			</div><!-- /header -->
-			
-			<div data-role="content">
-				<ul data-role="listview" id="favoriteflows" data-filter="true"/>
-			</div>
-			
-		</div><!-- /favoritespage -->
-
 		
 		<div data-role="page" id="collectionspage">
 			
@@ -108,22 +94,17 @@
 			<div data-role="header"  data-position="fixed" style="height:40px;">
 				<div><h2 id="poemname">Sonnet #34</h2></div>
 				<a href="#home" data-role="button"  data-transition="slide" data-direction="reverse" data-icon="back" data-inline="true" data-mini="true"  data-iconpos="notext" id="poembackbutton">Back</a>
-				<a href="#poeminfopage" data-role="button" data-icon="info" data-transition="flip" data-inline="true" data-mini="true"  class="ui-btn-right" data-iconpos="notext">About</a>
+				<div data-type="horizontal" data-role="controlgroup" class="ui-btn-right" id="poembuttoncontrolgroup">  
+				  <a href="#" id="playpoem" data-icon="camera" data-role="button"  data-inline="true" data-mini="true" data-iconpos="notext" class="ui-corner-all ui-btn-inline" onClick='PlayFlow()' style="border-radius: 15px; padding: 6px; margin-top: 3px">Fav</a>
+				  <a href="#" id="favpoem" data-icon="heart" data-role="button"  data-inline="true" data-mini="true" data-iconpos="notext" class="ui-corner-all ui-btn-inline" onClick='ToggleFavorite()' style="border-radius: 15px; padding: 6px; margin-top: 3px">Fav</a>
+				  <a href="#poeminfopage" data-role="button" data-icon="info" data-transition="flip" data-inline="true" data-iconpos="notext" style="border-radius: 15px; padding: 6px; margin-top: 3px">About</a>
+				</div>
 			</div><!-- /header -->
 			
 			<div data-role="content" id="staticpoem">
 				<p>Content Here</p>
 			</div>
-			
-			
-			<div id="poemfooterbar" data-role="footer" data-position="fixed" style="height:35px;">
-				<div data-role="navbar">
-					<ul>
-						<li><a id="poemfooter" data-icon="star" data-role="button" onClick='ToggleFavorite()'></a></li>
-					</ul>
-				</div>
-			</div> <!-- /footer -->
-
+	
 		</div><!-- /poempage -->
 		
 		<div data-role="page" id="flowpage">

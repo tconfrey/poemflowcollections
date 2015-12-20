@@ -138,14 +138,8 @@ function ReadFileXML(filename) {
 function ToggleFavorite() {
     // Toggle current flows fav status
 	var flow = GetFlowById(CurrentFlow);
-    if (flow.favorite) {
-		flow.favorite = false;
-        PoemFooterUnFav();
-    }
-    else {
-		flow.favorite = true;
-        PoemFooterFav();
-    }
+	flow.favorite = !flow.favorite;
+	SetFavStatus(flow);
 	UpdateFlowsToLocalStorage();
 }
 

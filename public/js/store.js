@@ -70,10 +70,8 @@ function PopulateStore() {
 
 var _PopulateStore = function (collections) {
     for (var i = 0; i < collections.length; i++) {
-		var prefix = (collections[i].price == "Free") ? "" : "$";
-		var suffix = (collections[i].price == "Free") ? "!" : "";
-        var price = CollectionId(collections[i].name) ? "<i>Purchased</i>" : prefix + collections[i].price + suffix;
-        var child = "<li onclick='PreviewCollection(\"" + collections[i].name + "\")'><div>"+collections[i].name+"</div><!--<div id='price'>"+price+"</div>--><div id='description'>"+ collections[i].summary + "</div></li>";
+        var owned = CollectionId(collections[i].name) ? "<i>Downloaded</i>" : "";
+        var child = "<li onclick='PreviewCollection(\"" + collections[i].name + "\")'><div>"+collections[i].name+"</div><div id='price'>"+owned+"</div><div id='description'>"+ collections[i].summary + "</div></li>";
         if (collections[i].showinstore) {
 			$("#store").append(child).css( 'cursor', 'pointer' );
 		}
