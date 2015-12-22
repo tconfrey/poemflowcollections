@@ -1,3 +1,6 @@
+/*
+  Code to create and play the actual flow
+*/
 
 var labels = [];
 var displayed = [];
@@ -78,12 +81,12 @@ function setDisplay()
 // set portrait or landscape display (flow or static)
 {
     console.log("width="+$(window).width()+", height="+ $(window).height());
-    if ($(window).width() > $(window).height()) {
-        // landscape
+    if (Mobile && ($(window).width() > $(window).height())) {
+        // landscape on mobile device
 		PlayFlow();
     }
     else {
-        $.mobile.changePage($("#poempage"), {transition: "slide"});
+        $.mobile.changePage($("#poempage"), {transition: "fade"});
         setScale();
         Pause();
     }
@@ -92,7 +95,7 @@ function setDisplay()
 function PlayFlow() {
 	// Play current flow
 
-    $.mobile.changePage($("#flowpage"), {transition: "slide"});
+    $.mobile.changePage($("#flowpage"), {transition: "fade"});
     setScale();
     paused = true;          // need to set this to get unpause to work on initial start
     UnPause();
@@ -108,14 +111,19 @@ function setScale()
     var scalex = width / 480;	                       // base width is 480
     var scaley = height / 320;                         // base height is 320
     scale = (scalex < scaley) ? scalex : scaley;       // scale to fit
+	var flowwidth = 480 * scale;
+	var flowheight = 320 * scale;
     
-    $("#poemflow").css({"width" : 480*scale});
-    $("#poemflow").css({"height" : 320*scale});
+    $("#poemflow").css({"width" : flowwidth});
+    $("#poemflow").css({"height" : flowheight});
     $("#poemflow").css("font-size", (28 * scale));
+	$("#poemflow").css("margin-left", ((width - flowwidth)/2));
+	$("#poemflow").css("margin-top", ((height - flowheight)/2));
+	/*
 	if (width == 568) {			// hokey hard coding for the long skinny iphone rather than screwing w css to center
-		$("#poemflow").css("left", "29px");
+		$("#poemflow").css("left", "29px");	
 	}
-    
+		*/
 }
 
 var flowcache;
@@ -147,7 +155,7 @@ function CreateFlow() {
             if (parseInt($(m2).attr('t2')) > vmax) {
                 vmax = parseInt($(m2).attr('t2'));
             }
-            
+
             var ttvDiv = $("<div class='ttvLabel' style='white-space: pre; position: absolute; opacity: 0.0' id ='" + index + "'>" + $(this).attr('text') + "</div>" );
             ttvDiv.attr('t11', t11); ttvDiv.attr('t12', t12); ttvDiv.attr('t21', t21); ttvDiv.attr('t22', t22);
             //ttvDiv.attr('x11', x11); ttvDiv.attr('x12', x12); ttvDiv.attr('x21', x21); ttvDiv.attr('x22', x22);
