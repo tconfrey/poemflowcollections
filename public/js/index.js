@@ -6,7 +6,12 @@ var app = new Object();
 var Mobile;
 
 $(document).ready(function(){
-    console.log("Device Ready. Opening DB...");
+    console.log("Device Ready. Initializing...");
+
+	if (($(window).width() / $(window).height()) > 1.3) { 
+		$('#home').css('background-image', 'url("css/images/pf-collections-background-wide.jpg")');
+	} 
+
     $.mobile.loading('show');
 	ProcessLocalStorage();
     PopulateAllFlowsList();
