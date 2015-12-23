@@ -110,7 +110,7 @@ function setScale()
 {
     var width = parseInt($(window).width());
     var height = parseInt($(window).height());
-	var extrascalefactor = 1.2;
+	var extrascalefactor = 1.15;
     var scalex = width / (480 / extrascalefactor);	                       // base width is 480
     var scaley = height / (320 / extrascalefactor);                         // base height is 320
     scale = (scalex < scaley) ? scalex : scaley;       // scale to fit
@@ -122,7 +122,7 @@ function setScale()
     $("#poemflow").css("font-size", (28 * scale));
     $("#poemflow").css("padding", 0);
 	$("#poemflow").css("margin-left", ((width - flowwidth)/2));
-	$("#poemflow").css("margin-top", ((height - flowheight)/3));
+	$("#poemflow").css("margin-top", ((height - flowheight)/4));
 	/*
 	if (width == 568) {			// hokey hard coding for the long skinny iphone rather than screwing w css to center
 		$("#poemflow").css("left", "29px");	

@@ -153,7 +153,7 @@ function SetFlowSpeed() {
     $('#speed').val(spd);
     
     /* Need to wait until the prefs page is initialized ot refresh the slider */
-    $( '#preferencespage' ).live( 'pageinit',function(event){
+    $( '#preferencespage' ).on( 'pageinit', null, function(event){
                                  $('#speed').val(spd);
                                  $('#speed').slider("refresh");
                            });
