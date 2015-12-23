@@ -108,8 +108,10 @@ function LoadCurrentFlow() {
 function SetFavStatus(flow) {
 	if (flow.favorite) {
 		$("#favpoem").addClass("ui-focus");
+		$("#favpoem").css("background-color", "#F69999");
 	} else {
 		$("#favpoem").removeClass("ui-focus");
+		$("#favpoem").css("background-color", "#F6F6F6");
 	}
 }
 

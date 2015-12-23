@@ -17,13 +17,17 @@ $(document).ready(function(){
 	$("#storepage").on("pagebeforeshow", function(event) { PopulateStore(); } );
 	$("#collectionspage").on("pagebeforeshow", function(event) { PopulateCollectionsList(); } );
 	$("#poemlistpage").on("pagebeforeshow", function(event) { PopulateAllFlowsList(); } );
+/*
+	$("#flowpage").on("pagebeforeshow", function(event) { FullScreen(true); } );
+*/
+	$("#poempage").on("pagebeforeshow", function(event) { FullScreen(false); } );
 	
 	Mobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) );
     $(window).bind('orientationChange', function(event) {
         checkOrientation();
     });
     $(window).bind('resize', function(event) {
-        checkOrientation();
+        //checkOrientation();
     });
 
     $("#poemflow").click(function() {

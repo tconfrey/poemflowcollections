@@ -94,10 +94,34 @@ function setDisplay()
     }
 }
 
+var IsFullScreen = false;
+function FullScreen(on) {
+	
+	// Experimental fullscreen
+	var docElement, request;
+    docElement = document.documentElement;
+	if (on && !IsFullScreen) {	// go full screen
+		request = docElement.requestFullScreen || docElement.webkitRequestFullScreen || docElement.mozRequestFullScreen || docElement.msRequestFullScreen;
+		if(typeof request!="undefined" && request){
+			IsFullScreen = true; console.log("set fullscreen on");
+			request.call(docElement);
+		}
+    }
+	if (!on && IsFullScreen) {	// quit full screen
+		request = document.cancelFullScreen || document.webkitCancelFullScreen || document.mozCancelFullScreen || document.msCancelFullScreen || document.exitFullscreen;
+		if(typeof request!="undefined" && request){
+			IsFullScreen = false; console.log("set fullscreen off");
+			request.call(document);
+		}
+	}
+		
+}
+
 function PlayFlow() {
 	// Play current flow
 
     $.mobile.changePage($("#flowpage"), {transition: "fade"});
+	FullScreen(true);
     setScale();
     paused = true;          // need to set this to get unpause to work on initial start
     UnPause();
