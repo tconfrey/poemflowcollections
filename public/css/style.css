@@ -17,6 +17,11 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
   font-style: italic;
 }      
 
+#overlay {
+	width: 80%;
+	margin-left: 10%;
+}
+
 #poempage{
 	margin: auto;
 	font-family: GaramondTTV;
@@ -88,13 +93,24 @@ h2 {
     margin: 0 auto;
 }
 
-#replaybutton {
+#flowbuttoncontrolgroup {
     position: absolute;
-    top: 50%;
-    height: 128px;
-    margin-top: -64px;
-    left: 50%;
-    margin-left: -64px;
+	left: 50%;
+	margin-left: -128px;
+	top: 50%;
+	margin-top: -64px;
+}
+#resumebutton, #replaybutton, #flowbackbutton {
+	height: 128px;
+	width: 128px;
+}
+#replaybutton::after, #resumebutton::after, #flowbackbutton::after {
+    background-size: 90% !important;
+    width: 90% !important;
+    height: 90% !important;
+	left: 0px !important;
+	top: 0px !important;
+	margin: 5% !important;
 }
 
 #poet, #description {

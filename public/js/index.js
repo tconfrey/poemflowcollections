@@ -29,5 +29,11 @@ $(document).ready(function(){
     $("#poemflow").click(function() {
         if (paused) {UnPause();} else {Pause();}
     });
+
+	if (!localStorage.notFirstTime) {
+		setTimeout("$('#overlay').popup('open')", 250);
+		localStorage.notFirstTime = true;
+	}
+
 });
 

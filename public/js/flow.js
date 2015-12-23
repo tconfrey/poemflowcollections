@@ -58,6 +58,7 @@ function Pause(){
     console.log("into Pause");
     if (paused) { return;}
     $('#resumebutton').show();
+    $('#flowbackbutton').show();
     var d = new Date();
     pausedstart = d.getTime();
     if (timeout) { clearTimeout(timeout);}
@@ -69,6 +70,7 @@ function UnPause(){
     console.log("into UNPause");
     if (!paused) { return;}
     $('#resumebutton').hide();
+    $('#flowbackbutton').hide();
     var d = new Date();
     var pausetime = d.getTime() - pausedstart;
     starttime += pausetime;
@@ -108,8 +110,9 @@ function setScale()
 {
     var width = parseInt($(window).width());
     var height = parseInt($(window).height());
-    var scalex = width / 480;	                       // base width is 480
-    var scaley = height / 320;                         // base height is 320
+	var extrascalefactor = 1.2;
+    var scalex = width / (480 / extrascalefactor);	                       // base width is 480
+    var scaley = height / (320 / extrascalefactor);                         // base height is 320
     scale = (scalex < scaley) ? scalex : scaley;       // scale to fit
 	var flowwidth = 480 * scale;
 	var flowheight = 320 * scale;
@@ -117,8 +120,9 @@ function setScale()
     $("#poemflow").css({"width" : flowwidth});
     $("#poemflow").css({"height" : flowheight});
     $("#poemflow").css("font-size", (28 * scale));
+    $("#poemflow").css("padding", 0);
 	$("#poemflow").css("margin-left", ((width - flowwidth)/2));
-	$("#poemflow").css("margin-top", ((height - flowheight)/2));
+	$("#poemflow").css("margin-top", ((height - flowheight)/3));
 	/*
 	if (width == 568) {			// hokey hard coding for the long skinny iphone rather than screwing w css to center
 		$("#poemflow").css("left", "29px");	
