@@ -39,9 +39,11 @@ function FilterFavorites() {
 	if (ShowOnlyFavs) {
 		$("#allflows .notfav").slideUp(600);
 		$("#poemlistpage h2").text("Favorite Poems");
+		$("#filterbutton").css("background-color", "#F69999");
 	} else {
 		$("#allflows .notfav").slideDown(600);
 		$("#poemlistpage h2").text("All Poems");
+		$("#filterbutton").css("background-color", "#F6F6F6");
 	}
 }
 
@@ -100,17 +102,15 @@ function LoadCurrentFlow() {
     var flow = GetFlowById(CurrentFlow);
 	if (flow) {					// might not be loaded
 		$("#poemname").text(TrimTitle(flow.title, 25));
-		SetFavStatus(flow);
+		SetFavButtonStatus(flow);
 	}
     ReadFileXML(CurrentFlow+".xml");
 }
 
-function SetFavStatus(flow) {
+function SetFavButtonStatus(flow) {
 	if (flow.favorite) {
-		$("#favpoem").addClass("ui-focus");
 		$("#favpoem").css("background-color", "#F69999");
 	} else {
-		$("#favpoem").removeClass("ui-focus");
 		$("#favpoem").css("background-color", "#F6F6F6");
 	}
 }

@@ -8,7 +8,7 @@ var Mobile;
 $(document).ready(function(){
     console.log("Device Ready. Initializing...");
 
-	if (($(window).width() / $(window).height()) > 1.3) { 
+	if (($(window).width() / $(window).height()) > 1.2) { 
 		$('#home').css('background-image', 'url("css/images/pf-collections-background-wide.jpg")');
 	} 
 

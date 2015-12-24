@@ -244,8 +244,8 @@ function ttvPosition() {
     });
     if (interval < max)	{								   // reset the timer
         timeout = window.setTimeout(ttvPosition, 20);
-    } else {
-        $("#replaybutton").css("visibility", "visible");
+    } else {					// or back to poem page
+        $.mobile.changePage($("#poempage"), {transition: "fade"});
     }
 }
 

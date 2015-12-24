@@ -140,7 +140,7 @@ function ToggleFavorite() {
     // Toggle current flows fav status
 	var flow = GetFlowById(CurrentFlow);
 	flow.favorite = !flow.favorite;
-	SetFavStatus(flow);
+	SetFavButtonStatus(flow);
 	UpdateFlowsToLocalStorage();
 }
 
