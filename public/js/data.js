@@ -2,7 +2,75 @@
   General data processsing
 */
 
-
+var DefaultCollection = 
+    {
+		"name": "PoemFlow Classics",
+		"price": "11",
+		"giftprice": 9,
+		"showinstore": true,
+		"editor": "Tony",
+		"summary": "Tonys favs",
+		"longdescription": "A representative set of the poems of the day from the PoemFlow app courtesy of TextTelevision.",
+		"flows": [
+			{
+				"id": "800",
+				"title": "The Gettysburg Address",
+				"author": "Abraham Lincoln"
+			},
+			{
+				"id": "280",
+				"title": "The Second Coming",
+				"author": "William Butler Yeats"
+			},
+			{
+				"id": "390",
+				"title": "The Lake Isle of Innisfree",
+				"author": "William Butler Yeats"
+			},
+			{
+				"id": "1354",
+				"title": "Jabberwocky",
+				"author": "Lewis Carroll"
+			},
+			{
+				"id": "1636",
+				"title": "St. Crispin",
+				"author": "William Shakespeare"
+			},
+			{
+				"id": "1743",
+				"title": "Praise Song for the Day",
+				"author": "Elizabeth Alexander"
+			},
+			{
+				"id": "564",
+				"title": "All the world",
+				"author": "William Shakespeare"
+			},
+			{
+				"id": "856",
+				"title": "Christmas Bells",
+				"author": "Henry Wadsworth Longfellow"
+			},
+			{
+				"id": "270",
+				"title": "Mending Wall",
+				"author": "Robert Frost"
+			},
+			{
+				"id": "269",
+				"title": "The Road Not Taken",
+				"author": "Robert Frost",
+				"favorite" : "true"
+			},
+			{
+				"id": "2306",
+				"title": "Poem Flow is closing",
+				"author": "TextTelevision"
+			}
+		],
+		"value": "2306,800,280,390,1354,1636,1743,564,856,270,269"
+    };
 var Collections = new Array();
 var AllFlows = new Array();
 
