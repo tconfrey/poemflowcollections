@@ -32,7 +32,7 @@ $(document).ready(function(){
         checkOrientation();
     });
     $(window).bind('resize', function(event) {
-        //checkOrientation();
+        checkOrientation();
     });
 
     $("#poemflow").click(function() {

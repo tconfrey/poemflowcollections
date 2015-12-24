@@ -16,6 +16,7 @@ var flowspeed = 1.0;
 var checkOrientation = function(){
     console.log('checkOrientation: window width = ' + $(window).width());
     if (($.mobile.activePage.attr("id") != "poempage") && ($.mobile.activePage.attr("id") != "flowpage")) return;
+	if (!Mobile && !window.screenTop && !window.screenY) return; // full screen (don't heed resize event)
     if($(window).width() != previousWidth){
         previousWidth = $(window).width();
         setDisplay();
