@@ -5,12 +5,27 @@ var app = new Object();
 // Test is device is mobile, ie can rotate
 var Mobile;
 
+function FirstTimeOverlay() {
+	//show overlay if first time
+	if (!localStorage.notFirstTime) {
+		setTimeout("$('#overlay').popup('open')", 1000);
+		localStorage.notFirstTime = true;
+	}
+}
+
 $(document).ready(function(){
     console.log("Device Ready. Initializing...");
 
-	if (($(window).width() / $(window).height()) > 1.2) { 
-		$('#home').css('background-image', 'url("css/images/pf-collections-background-wide.jpg")');
-	} 
+	var background = (($(window).width() / $(window).height()) > 1.2) ?
+		'css/images/pf-collections-background-wide.jpg' :
+		'css/images/pf-collections-background.jpg';
+
+	// load image before changing background to avoid conflict w overlay
+	$('<img/>').attr('src', background ).load(function() {
+		$(this).remove(); // prevent memory leak
+		$('#home').css('background-image', 'url('+background+')');
+		FirstTimeOverlay();
+	});
 
     $.mobile.loading('show');
 	ProcessLocalStorage();
@@ -38,11 +53,5 @@ $(document).ready(function(){
     $("#poemflow").click(function() {
         if (paused) {UnPause();} else {Pause();}
     });
-
-	if (!localStorage.notFirstTime) {
-		setTimeout("$('#overlay').popup('open')", 250);
-		localStorage.notFirstTime = true;
-	}
-
 });
 
