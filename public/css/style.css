@@ -43,8 +43,11 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
 h2 {
     text-align: center;
     font-family: GaramondTTV;
-    font-size: 26px;
+    font-size: 24px;
     padding-bottom: 5px;
+}
+#poetname {
+	margin-left: -50px;
 }
 
 #poempage h2 {

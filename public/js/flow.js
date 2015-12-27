@@ -28,25 +28,25 @@ function SetupFlow() {
     // Clear the decks for a new flow
     labels = []; displayed = [];
     $("#poemflow").empty();
-    $("#replaybutton").css("visibility", "hidden");
     max = 0; vmax = 0; paused = false;
     var staticHTML = "<b>" + $(CurrentXML).find("title").text() + "</b><br/><br/>" + $(CurrentXML).find("ttvHTMLText").text();
     $('#staticpoem').html(staticHTML);
     var description = $(CurrentXML).find("description").text()
     $('#poeminfo').html(description);
-    $("#poemname").text($(CurrentXML).find("author").first().text());  // set header title
+	var poet = $(CurrentXML).find("author").first().text();
+    $("#poetname").text(TrimTitle(poet, 20));  // set header title
     CreateFlow();
-    
+
     // now start the animation
     var d = new Date();
     starttime = d.getTime();
     pausedstart = starttime;
     setDisplay();
+	FirstFlowOverlay();
 }
 
 function Replay() {
     // start the flow again
-    $("#replaybutton").css("visibility", "hidden");
     paused = true;
     var d = new Date();
     starttime = d.getTime();
@@ -93,6 +93,14 @@ function setDisplay()
         setScale();
         Pause();
     }
+}
+
+function FirstFlowOverlay() {
+	//show overlay if first time
+	if (!localStorage.notFirstFlow) {
+		setTimeout("$('#poemoverlay').popup('open')", 1000);
+		localStorage.notFirstFlow = true;
+	}
 }
 
 var IsFullScreen = false;

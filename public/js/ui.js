@@ -101,7 +101,6 @@ function LoadCurrentFlow() {
     // Fun with Flows...
     var flow = GetFlowById(CurrentFlow);
 	if (flow) {					// might not be loaded
-		$("#poemname").text(TrimTitle(flow.title, 25));
 		SetFavButtonStatus(flow);
 	}
     ReadFileXML(CurrentFlow+".xml");
