@@ -96,18 +96,44 @@ h2 {
     margin: 0 auto;
 }
 
+/* Huge brute force approach to having the flow controls fill the space correctly */
 #flowbuttoncontrolgroup {
-    position: absolute;
-	left: 50%;
-	margin-left: -128px;
-	top: 50%;
-	margin-top: -64px;
+    position: fixed;
+	left: 10%;
+	width: 80%;
+	top: 70%;
+	height: 128px;
+	display: none;
+	z-index: 10;
 }
-#resumebutton, #replaybutton, #flowbackbutton {
+#resumebutton, #flowbackbutton {
+	position: absolute;
 	height: 128px;
 	width: 128px;
+	top: 0px;
 }
-#replaybutton::after, #resumebutton::after, #flowbackbutton::after {
+#flowbackbutton {
+	left: 0px;
+}
+#resumebutton {
+	right: 0px;
+}
+#scrubber {
+	margin-top: 64px;
+	margin-left: 128px;
+	margin-right: 128px;
+}
+
+#scrubber .ui-slider-input {
+	display: none !important;
+	width: 0px !important;
+}
+
+#scrubber .ui-rangeslider-sliders {
+	margin-left: 32px;
+	margin-right: 32px;
+}
+#resumebutton::after, #flowbackbutton::after {
     background-size: 90% !important;
     width: 90% !important;
     height: 90% !important;

@@ -37,6 +37,9 @@ function SetupFlow() {
     $("#poetname").text(TrimTitle(poet, 20));  // set header title
     CreateFlow();
 
+	// set up scrubber
+	$("#scrubberslider").attr("max", max);
+
     // now start the animation
     var d = new Date();
     starttime = d.getTime();
@@ -45,23 +48,29 @@ function SetupFlow() {
 	FirstFlowOverlay();
 }
 
-function Replay() {
-    // start the flow again
-    paused = true;
-    var d = new Date();
-    starttime = d.getTime();
-    pausedstart = starttime;
-    setDisplay();
+// We get scrub start and stop events and set a timeout to capture motions in between
+var scrubbing = null;
+function Scrub() {
+	var val = $("#scrubberslider").val();
+	ttvInstant(val);			// scrub to val
+	scrubbing = window.setTimeout(function() {Scrub();}, 100);
 }
 
-var pausedstart = 0;
+function ScrubStop() {
+	if (scrubbing) { clearTimeout(scrubbing); scrubbing = false;}
+	var val = $("#scrubberslider").val();
+}
+
 function Pause(){
     console.log("into Pause");
     if (paused) { return;}
-    $('#resumebutton').show();
-    $('#flowbackbutton').show();
-    var d = new Date();
-    pausedstart = d.getTime();
+
+	var d = new Date();
+    var interval =  ((d.getTime() - starttime) / 10) * flowspeed;
+	if ($("#scrubberslider").hasClass("ui-slider-input")) // ensure already set up
+		$("#scrubberslider").val(interval).slider("refresh");
+
+    $('#flowbuttoncontrolgroup').show();
     if (timeout) { clearTimeout(timeout);}
     paused = true;
     console.log("outof Pause");
@@ -70,11 +79,16 @@ function Pause(){
 function UnPause(){
     console.log("into UNPause");
     if (!paused) { return;}
-    $('#resumebutton').hide();
-    $('#flowbackbutton').hide();
+    $('#flowbuttoncontrolgroup').hide();
     var d = new Date();
-    var pausetime = d.getTime() - pausedstart;
-    starttime += pausetime;
+	
+	// scrubber has the interval whether we've scrubbed or not
+	var interval = $("#scrubberslider").val();
+	// flow time is centa-seconds, scaled by flowspeed
+	var timeinterval = interval * 10 / flowspeed;
+	var currenttime = d.getTime();
+	starttime = currenttime - timeinterval;
+	
     ttvPosition();
     paused = false;
     console.log("outof UNPause");
@@ -104,8 +118,7 @@ function FirstFlowOverlay() {
 }
 
 var IsFullScreen = false;
-function FullScreen(on) {
-	
+function FullScreen(on) {	
 	// Experimental fullscreen
 	var docElement, request;
     docElement = document.documentElement;
@@ -144,8 +157,8 @@ function setScale()
     var width = parseInt($(window).width());
     var height = parseInt($(window).height());
 	var extrascalefactor = 1.15;
-    var scalex = width / (480 / extrascalefactor);	                       // base width is 480
-    var scaley = height / (320 / extrascalefactor);                         // base height is 320
+    var scalex = width / (480 / extrascalefactor);	   // base width is 480
+    var scaley = height / (320 / extrascalefactor);    // base height is 320
     scale = (scalex < scaley) ? scalex : scaley;       // scale to fit
 	var flowwidth = 480 * scale;
 	var flowheight = 320 * scale;
@@ -156,11 +169,6 @@ function setScale()
     $("#poemflow").css("padding", 0);
 	$("#poemflow").css("margin-left", ((width - flowwidth)/2));
 	$("#poemflow").css("margin-top", ((height - flowheight)/4));
-	/*
-	if (width == 568) {			// hokey hard coding for the long skinny iphone rather than screwing w css to center
-		$("#poemflow").css("left", "29px");	
-	}
-		*/
 }
 
 var flowcache;
@@ -195,9 +203,6 @@ function CreateFlow() {
 
             var ttvDiv = $("<div class='ttvLabel' style='white-space: pre; position: absolute; opacity: 0.0' id ='" + index + "'>" + $(this).attr('text') + "</div>" );
             ttvDiv.attr('t11', t11); ttvDiv.attr('t12', t12); ttvDiv.attr('t21', t21); ttvDiv.attr('t22', t22);
-            //ttvDiv.attr('x11', x11); ttvDiv.attr('x12', x12); ttvDiv.attr('x21', x21); ttvDiv.attr('x22', x22);
-            //ttvDiv.attr('y11', y11); ttvDiv.attr('y12', y12); ttvDiv.attr('y21', y21); ttvDiv.attr('y22', y22);
-            //ttvDiv.attr('a11', a11); ttvDiv.attr('a12', a12); ttvDiv.attr('a21', a21); ttvDiv.attr('a22', a22);
             ttvDiv.attr('fontstyle', ($(this).attr('fontStyle') == 'italic') ? 'italic' : 'normal');
             if ($(this).attr('fontSize')) {
                 ttvDiv.attr('fontSize', $(this).attr('fontSize'));
@@ -219,19 +224,23 @@ function ttvPosition() {
     // called continuously to update display until complete
     //console.log("starttime="+starttime);
     var d = new Date();
-    var interval = ((d.getTime() - starttime) / 10) * flowspeed; // current animation time
-    
-    /*
-    if (paused) {										   // reset the timer
-        timeout = window.setTimeout(ttvPosition, 10, starttime + 10, maxtime);
-        return;
-    }
-     */
-    
-    var fntsize;
+	// calculate current animation time if not passed in
+    var interval =  ((d.getTime() - starttime) / 10) * flowspeed;
     // Used by UpdateDisplay, calculate once for performance
     containerX = parseInt($("#poemflow").position().left);
     containerY = parseInt($("#poemflow").position().top);
+
+	ttvInstant(interval); 		// display appropriate labels
+
+    if (interval < max)	{								   // reset the timer
+        timeout = window.setTimeout(ttvPosition, 20);
+    } else {					// or back to poem page
+        $.mobile.changePage($("#poempage"), {transition: "fade"});
+    }
+}
+
+function ttvInstant (interval) {
+	// display flow at this interval
     $(labels).each(function () {
 		var id = $(this).attr('id');
         if ((interval > $(this).attr('t11')) && (interval < $(this).attr('t22'))) { // should be displayed
@@ -242,20 +251,15 @@ function ttvPosition() {
                 $("#poemflow").append($(this));
                 displayed.push(id);
             }
-            updateDisplay($(this), interval);                           // update this labels display for this time
+            updateDisplay($(this), interval);           // update label for this time
         }
-        else if (interval > $(this).attr('t22')) {                      // else hide it if display time passed
-            if ($.inArray(id, displayed) >= 0) {                         // if still being displayed
-                displayed.splice( $.inArray(id, displayed), 1 );        // remove from displayed list
+        else { //if (interval > $(this).attr('t22')) {      // else hide it - time passed
+            if ($.inArray(id, displayed) >= 0) {        // If still being displayed
+                displayed.splice( $.inArray(id, displayed), 1 );  // remove from displayed list
                 $(this).remove();
             }
         }
     });
-    if (interval < max)	{								   // reset the timer
-        timeout = window.setTimeout(ttvPosition, 20);
-    } else {					// or back to poem page
-        $.mobile.changePage($("#poempage"), {transition: "fade"});
-    }
 }
 
 function updateDisplay(ttvLabel, time) {

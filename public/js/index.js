@@ -53,5 +53,11 @@ $(document).ready(function(){
     $("#poemflow").click(function() {
         if (paused) {UnPause();} else {Pause();}
     });
+
+	$(document).on("pageinit", "#flowpage", function(){
+		$("#scrubberslider").on('slidestart', function() {Scrub();});
+		$("#scrubberslider").on('slidestop', function() {ScrubStop();});
+	});
+		
 });
 
