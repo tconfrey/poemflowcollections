@@ -81,6 +81,7 @@ function DispatchToPage() {
 function DispatchToPoemPage() {
 // handle any passed in poem id
 	CurrentFlow = location.hash.split('ID=')[1] || 280;
+	FirstFlowOverlayDelay += 1000; // delay overlay
 	LoadCurrentFlow();
 }
 	

@@ -115,10 +115,11 @@ function setDisplay()
     }
 }
 
+var FirstFlowOverlayDelay = 1000;
 function FirstFlowOverlay() {
 	//show overlay if first time
 	if (!localStorage.notFirstFlow) {
-		setTimeout("$('#poemoverlay').popup('open')", 1000);
+		setTimeout("$('#poemoverlay').popup('open')", FirstFlowOverlayDelay);
 		localStorage.notFirstFlow = true;
 	}
 }
