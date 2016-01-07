@@ -12,7 +12,7 @@ function FirstTimeOverlay() {
 		localStorage.notFirstTime = true;
 	}
 }
-
+var SliderActive = false;
 $(document).ready(function(){
     console.log("Device Ready. Initializing...");
 
@@ -28,10 +28,12 @@ $(document).ready(function(){
 	});
 
     $.mobile.loading('show');
+    ScreenFonts = ($(window).width() > 800) ? LargeScreenFont : SmallScreenFont;
+    SetupScreen();
 	ProcessLocalStorage();
     PopulateAllFlowsList();
     PopulateCollectionsList();
-    SetupScreen();
+    $.mobile.loading('hide');
 
 	// set up listeners for ui events
 	$("#storepage").on("pagebeforeshow", function(event) { PopulateStore(); } );
@@ -50,13 +52,19 @@ $(document).ready(function(){
         checkOrientation();
     });
 
-    $("#poemflow").click(function() {
+	// click or tap anywhere on the page toggles pause
+    $("#flowpage").click(function(e) {
+		if (SliderActive) { SliderActive = false; return;}
         if (paused) {UnPause();} else {Pause();}
+    });
+    $("#flowbuttoncontrolgroup").click(function(event) {
+		// Here we note that the click/tap was while the Slider is active and therefore the flowpage click which propagates above should not be handled. (Couldn't figure out how to have the flowpage event not get fired at all.
+		SliderActive = true;
     });
 
 	$(document).on("pageinit", "#flowpage", function(){
-		$("#scrubberslider").on('slidestart', function() {Scrub();});
-		$("#scrubberslider").on('slidestop', function() {ScrubStop();});
+		$("#scrubberslider").on('slidestart', function(e) {Scrub(); });
+		$("#scrubberslider").on('slidestop', function(e) {ScrubStop(); });
 	});
 		
 });

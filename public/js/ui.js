@@ -116,33 +116,26 @@ function SetFavButtonStatus(flow) {
 
 var SmallScreenFont = {'smallest' : '12px', 'small' : '14px', 'medium' : '18px', 'large' : '21px', 'largest' : '24px'};
 var LargeScreenFont = {'smallest' : '14px', 'small' : '18px', 'medium' : '21px', 'large' : '24px', 'largest' : '32px'};
-var RunningOnIPad = false;
+var ScreenFonts;
 
 function SetupScreen() {
-    // Running on iPad?
-    if (($(window).width() + $(window).height()) == 1792) {
-        RunningOnIPad = true;
-//        $("#adimage").attr("src", "https://googledrive.com/host/0B9azlFhg9-PrMGV4aDd1OHBaZG8/ipad-ad.gif");
-    }
-    $.mobile.loading('hide');
-}
-
-function GetFontPx(fontsize) {
-    // bigger for ipad
-    if (RunningOnIPad) {
-        if (LargeScreenFont[fontsize]) return LargeScreenFont[fontsize];
-    } else {
-        if (SmallScreenFont[fontsize]) return SmallScreenFont[fontsize];
-    }
-    // default in case of error:
-    return '18px';
+	// If window is skinny move scrubber below buttons. note this can change during execution due to rotations.
+	if (($(window).width()) < 464) { 
+		$("#scrubber").css("margin-top", "156px");
+		$("#scrubber").css("margin-left", "64px");
+		$("#scrubber").css("margin-right", "64px");
+	} else {
+		$("#scrubber").css("margin-top", "64px");
+		$("#scrubber").css("margin-left", "128px");
+		$("#scrubber").css("margin-right", "128px");
+	}	
 }
 
 function ChangeTextSize() {
     // Called from prefs
     var newfontsize = $('#textsize').val();
     
-    fontpx = GetFontPx(newfontsize);
+    fontpx = ScreenFonts[newfontsize];
     $('#staticpoem').css('font-size', fontpx);
     window.localStorage.setItem('fontsize', newfontsize);
 }

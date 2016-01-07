@@ -22,7 +22,6 @@ function GetStoreCollections(cbfunction) {
     $.getJSON(url, function(data) {
               var items = data.StoreCollections;
               StoreCollections = items;
-			  //SetUpLinks(data.iPadAd, data.iPhoneAd, data.AdDestinaton);
               cbfunction(items);
               });
 }
@@ -35,13 +34,6 @@ function CheckNetworkAvailable() {
     if ((networkState == Connection.NONE) || (networkState == Connection.UNKNOWN))
         return false;
     return true;
-}
-
-function SetUpLinks(ipadad, iphonead, dest) {
-	// update the in-store ad image and its link
-	var ad = RunningOnIPad ? ipadad : iphonead;
-	$("#adimage").attr("src", ad);
-	$("#adlink").attr("href", dest);
 }
 
 function CollectionId(name) {

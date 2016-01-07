@@ -158,7 +158,7 @@ function SetFontSize() {
     
     if (!window.localStorage.getItem('fontsize')) return;
     var fontsize = window.localStorage.getItem('fontsize');
-    fontpx = GetFontPx(fontsize);
+    fontpx = ScreenFonts[fontsize];
     $('#textsize').val(fontsize);
     $('#staticpoem').css('font-size', fontpx);
 }

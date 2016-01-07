@@ -26,6 +26,7 @@ var checkOrientation = function(){
 function SetupFlow() {
     
     // Clear the decks for a new flow
+	SetupScreen();
     labels = []; displayed = [];
     $("#poemflow").empty();
     max = 0; vmax = 0; paused = false;
@@ -58,7 +59,6 @@ function Scrub() {
 
 function ScrubStop() {
 	if (scrubbing) { clearTimeout(scrubbing); scrubbing = false;}
-	var val = $("#scrubberslider").val();
 }
 
 function Pause(){
@@ -89,6 +89,12 @@ function UnPause(){
 	var currenttime = d.getTime();
 	starttime = currenttime - timeinterval;
 	
+//	ttvInstant(timeinterval);
+	displayed = [];				// clear the stage for restarting
+    $(labels).each(function () {
+        $(this).remove();
+	});
+
     ttvPosition();
     paused = false;
     console.log("outof UNPause");
@@ -142,8 +148,12 @@ function FullScreen(on) {
 function PlayFlow() {
 	// Play current flow
 
+	if ($("#scrubberslider").hasClass("ui-slider-input")) // ensure already set up
+		$("#scrubberslider").val(0).slider("refresh");
+	SetupScreen();
+
     $.mobile.changePage($("#flowpage"), {transition: "fade"});
-	FullScreen(true);
+//	FullScreen(true);
     setScale();
     paused = true;          // need to set this to get unpause to work on initial start
     UnPause();
