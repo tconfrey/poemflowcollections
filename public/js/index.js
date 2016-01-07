@@ -15,7 +15,6 @@ function FirstTimeOverlay() {
 var SliderActive = false;
 $(document).ready(function(){
     console.log("Device Ready. Initializing...");
-
 	var background = (($(window).width() / $(window).height()) > 1.2) ?
 		'css/images/pf-collections-background-wide.jpg' :
 		'css/images/pf-collections-background.jpg';
@@ -33,7 +32,6 @@ $(document).ready(function(){
 	ProcessLocalStorage();
     PopulateAllFlowsList();
     PopulateCollectionsList();
-    $.mobile.loading('hide');
 
 	// set up listeners for ui events
 	$("#storepage").on("pagebeforeshow", function(event) { PopulateStore(); } );
@@ -67,5 +65,22 @@ $(document).ready(function(){
 		$("#scrubberslider").on('slidestop', function(e) {ScrubStop(); });
 	});
 		
+	setTimeout("DispatchToPage();", 100);
+    $.mobile.loading('hide');
 });
 
+
+function DispatchToPage() {
+// handle any passed in url params to deep link
+	if (location.hash.split('?ID=')[0] == '#poempage')
+		DispatchToPoemPage();
+	if (location.hash.split('?ID=')[0] == '#collectionpage')
+		DispatchToCollectionPage();
+}
+
+function DispatchToPoemPage() {
+// handle any passed in poem id
+	CurrentFlow = location.hash.split('ID=')[1] || 280;
+	LoadCurrentFlow();
+}
+	
