@@ -1,12 +1,12 @@
 /* Handles data lists etc */
 
 var CurrentFlow = 0;
-var titlechars = 30;
+var titlechars = 45;
 
 function TrimTitle(title, size) {
     // titles should be no more than size chars
     if (title.length > size)
-        return title.substring(0,size) + "...";
+        return title.substring(0,size-3) + "...";
     return title;
 }
 
@@ -14,7 +14,7 @@ var ShowOnlyFavs = false;
 function PopulateAllFlowsList () {
     // populate the list of poems
     var width = parseInt($(window).width());
-    titlechars = (width > 480) ? 60 : 30;
+    titlechars = (width > 480) ? 60 : 45;
     $("#allflows").empty();
     for (var i = 0; i < AllFlows.length; i++) {
         var flow = AllFlows[i];

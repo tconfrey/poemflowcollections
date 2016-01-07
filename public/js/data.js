@@ -48,9 +48,9 @@ var DefaultCollection =
 				"author": "William Shakespeare"
 			},
 			{
-				"id": "856",
-				"title": "Christmas Bells",
-				"author": "Henry Wadsworth Longfellow"
+				"id": "276",
+				"title": "How Do I Love Thee?",
+				"author": "Elizabeth Barret Browning"
 			},
 			{
 				"id": "270",
