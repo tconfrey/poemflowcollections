@@ -141,8 +141,7 @@ function FullScreen(on) {
 			IsFullScreen = false; console.log("set fullscreen off");
 			request.call(document);
 		}
-	}
-		
+	}		
 }
 
 function PlayFlow() {
@@ -153,7 +152,7 @@ function PlayFlow() {
 	SetupScreen();
 
     $.mobile.changePage($("#flowpage"), {transition: "fade"});
-//	FullScreen(true);
+	FullScreen(true);
     setScale();
     paused = true;          // need to set this to get unpause to work on initial start
     UnPause();
