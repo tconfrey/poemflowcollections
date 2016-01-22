@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>PoemFlow Collections: Maker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/libraries/jquery.dataTables.min.js"></script>
+    <link type="text/css" href="http://poemflowcollections.tonyconfrey.net/poemflow.css" rel="stylesheet" />
+    <link type="text/css" href="css/PoemFlowCollections.css" rel="stylesheet" />
+    
+    <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+    <script src="js/CollectionMaker.js"></script>
+
+  </head>
+  
+  <body>
+    <div id="header">
+      <h1><a href="http://poemflow.com" title="Poem Flow Home">Poem Flow</a></h1>
+    </div>
+    <div id="subheader">
+      <h2>Collection Maker</h2>
+      <div id="descr"><i>Create and share your own PoemFlow Collections.</i></div>
+    </div>
+    <div>
+
+      <form>
+	<div id="collectionname">
+	  <div id="name"><h2>Name:&nbsp;&nbsp;<input type="text" id="nametext" value='New Collection Name'></input></h2></div>
+	  <div id='editor'><b>Editor:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><input type="text" id="editortext" value="TextTelevision"></input></div>
+	</div>
+
+	<div id="leftpane">
+	  <div id="archive">
+	    <table id="poems">
+	      <thead>
+		<tr>
+		  <th class="th-title">ID</th>
+		  <th class="th-title">Title</th>
+		  <th class="th-author">Author</th>
+		  <th class="th-arranger">Arranger</th>
+		</tr>
+	      </thead>
+	      <tbody>
+		
+	      </tbody>
+	    </table>
+	  </div>
+	</div><!-- leftpane -->
+
+	<div id="rightpane">
+	  <b>Description</b><br/>
+	  <textarea rows="7" id="descriptiontext">Describe the collection here</textarea>
+	  <br/>
+	  <b>Selected Poems </b>(Price: <span id="numpoems">0</span> Credits)<br/>
+	  <ul id='selections'>
+	  </ul>	
+	</div><!-- rightpane-->
+
+	<div id="buttondiv">
+	  <button type="button" id="createcollection" onClick="CreateCollection()" disabled>Save Collection</button>
+	</div>
+      </form>
+    </div>
+
+
+    <!-- This contains the hidden content for inline calls -->
+    <div id="overlay" style='display:none'>
+      <div id="overlayform">
+	<a class="close" onclick="$('#overlay').hide()"></a>
+	<h2> Collection Saved! </h2>
+	<br/>
+	<div>
+	  Open this url on your iOS device to access your collection in the PoemFlowCollections app: <br/><u>poemflowcollections://Collection/<span class="pfcid">123</span></u>. 
+	  <br/><br/>
+	  To edit your collection use this url: <br/><u>http://poemflowcollections.com/CollectionMaker.html?ID=<span class="pfcid">123</span></u>
+	  <br/><br/><br/>
+	  Email these details to your email account?
+	  <br/>
+	  <div id="email"><b>Email Address:&nbsp;&nbsp;</b><input type="text" id="emailtext"></input>
+	    <input type="button" id="emailbutton" value="Email Me" onClick="EmailDetails()" disabled />
+	  </div>
+	  <br/><br/>
+      </div>
+    </div>
+
+  </body>
+</html>
