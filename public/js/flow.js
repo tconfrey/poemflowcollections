@@ -46,7 +46,6 @@ function SetupFlow() {
     starttime = d.getTime();
     pausedstart = starttime;
     setDisplay();
-	FirstFlowOverlay();
 }
 
 // We get scrub start and stop events and set a timeout to capture motions in between
@@ -166,10 +165,11 @@ function setScale()
 {
     var width = parseInt($(window).width());
     var height = parseInt($(window).height());
-	var extrascalefactor = 1.15;
-    var scalex = width / (480 / extrascalefactor);	   // base width is 480
-    var scaley = height / (320 / extrascalefactor);    // base height is 320
+	var extrascalefactor = 1.25;
+    var scalex = width / 480;	   // base width is 480
+    var scaley = height / 320;     // base height is 320
     scale = (scalex < scaley) ? scalex : scaley;       // scale to fit
+	scale = scale * extrascalefactor;
 	var flowwidth = 480 * scale;
 	var flowheight = 320 * scale;
     

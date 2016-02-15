@@ -143,18 +143,6 @@ function ShowPreviewCollection(collection){
 }
 
 
-function arrayUnique(array) {
-	// Utility needed below
-    var a = array.concat();
-    for(var i=0; i<a.length; ++i) {
-        for(var j=i+1; j<a.length; ++j) {
-            if(a[i] === a[j])
-                a.splice(j--, 1);
-        }
-    }
-    return a;
-}
-
 function InteractWithAppStore(collection) {
     /* Do app Store stuff here, and then... */
     
@@ -162,7 +150,7 @@ function InteractWithAppStore(collection) {
     UpdateCollectionsToLocalStorage();
 
 	// Could be duplicate flows
-	var newallflows = arrayUnique(AllFlows.concat(collection.flows));
+	var newallflows = FlowArrayUnique(AllFlows.concat(collection.flows));
 	AllFlows = newallflows;
 	UpdateFlowsToLocalStorage();
     

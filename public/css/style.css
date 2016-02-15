@@ -24,7 +24,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
 
 #poempage{
 	margin: auto;
-	font-family: GaramondTTV;
+	font-family: Garamond;
 	font-size: 18px;
 	text-align: center;
 	color: #555;
@@ -42,7 +42,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
 
 h2 {
     text-align: center;
-    font-family: GaramondTTV;
+    font-family: Garamond;
     font-size: 24px;
     padding-bottom: 5px;
 }
@@ -485,5 +485,5 @@ a#promotion {
 
 div.ttvLabel {
 	font-size: 100%;
-	font: GaramondTTV;
+	font: Garamond;
 }

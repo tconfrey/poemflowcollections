@@ -124,12 +124,36 @@ function ReadFileXML(filename) {
 		dataType: "xml",
 		success: function(thexml) {
 			CurrentXML = thexml;
+			AddFlowLocally();
 			SetupFlow();
 			$.mobile.loading('hide');
 		}
     });
 }
 
+
+function FlowArrayUnique(array) {
+	// Utility needed below
+    var a = array.concat();
+    for(var i=0; i<a.length; ++i) {
+        for(var j=i+1; j<a.length; ++j) {
+            if(a[i].id === a[j].id)
+                a.splice(j--, 1);
+        }
+    }
+    return a;
+}
+
+function AddFlowLocally() {
+	// Add flow to allflows if not there
+	var newflow = new Object;
+	newflow.title = $(CurrentXML).find("title").text();
+	newflow.author = $(CurrentXML).find("author").text();
+	newflow.id = $(CurrentXML).find("flow").attr("id");
+	AllFlows.push(newflow);
+	AllFlows = FlowArrayUnique(AllFlows);  // need to figure out object equivalance
+	UpdateFlowsToLocalStorage();
+}
 
 function ToggleFavorite() {
     // Toggle current flows fav status

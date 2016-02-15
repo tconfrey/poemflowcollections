@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>TextFlows: Reading Re-Invented</title>
+<link rel="icon" 
+      type="image/png" 
+      href="images/flow_icon_sm.png">
+
+<script type="text/javascript" src="javascripts/swfobject.js"></script>
+<link rel="stylesheet" href="stylesheets/homepage2.css" type="text/css" />
+
+<script type='text/javascript'>
+  function playFlow(url) {
+    var address='player/playFlow/';
+    //Lightview.show({ href: address + url , rel: 'iframe', options: { fullscreen: true }});
+    pageTracker._trackPageview("/Browser/play/"+url);
+    document.location = address + url;
+    return "Flowing";
+  }
+</script>
+
+</head>
+
+<body>
+<div id="swf">
+	<!-- no flash -->
+	<center><br /><br /><br /><br /><br /><br />
+	<a href="http://www.macromedia.com/go/getflashplayer" target="_blank"><img src="images/get_flashplayer.gif" border="0"/></a>
+	</center>
+	<!-- flash -->
+
+	<script type="text/javascript">
+		var so = new SWFObject("/bin/flowBrowser.swf", "flows", "100%", "360", "9", "#ffffff");
+		so.addParam("wmode", "transparent");
+		so.write("swf");
+	</script>
+	</div>
+
+	<div id="container">
+	  <div id="caption">Reading Re-Invented</div>
+	  <center>
+	    <div id="blurb">
+	      TextFlows offer an entirely new way to interact with the written word. We use motion and light to present text as an animated flow on a simple, uncluttered screen. Reading becomes easier, more effective, and fun; writing receives an added dimension of artistic expression. Browse through some Flows, find one you like and play it full screen to get a sense of what we're all about! Then find out more:
+	    </div>
+	  </center>
+	  <div id="read">
+	    <a href="informationpage.html#read" id="readtitle">Read</a>
+	  </div>
+	  <div id="share">
+	    <a href="informationpage.html#share" id="sharetitle">Share</a>
+	  </div>
+	  <div id="compose">
+	    <a href="informationpage.html#compose" id="composetitle">Compose</a>
+	  </div>
+	  <div id="teach">
+	    <a href="informationpage.html#teach" id="teachtitle">Teach</a>
+	  </div>
+	  <div id="caption">News</div>
+	  <center>
+	    <div id="blurb">
+	      <ul><li>
+	      We love President Barack Obama's <a href="flow/1009">Inauguration Speech.</a>
+	      </li><li>
+	      In honor of Dr Martin Luther King day, we offer an interpretation of the famous  <a href="flow/1007">'I Have a Dream' speech</a>
+	      </li><li>
+	      Textflows.com has partnered with Poets.org, the website of The Academy of American Poets, to offer a new way to experience poetry. Poems are available here and on <a href="http://www.poets.org/textflows">poets.org</a>
+	    </li></ul>
+	    </div>
+	  </center>
+	</div>
+	<center>
+	<div id="footer">
+	  <table><tr>
+	    <td>
+	      <a href="faq.html" id="footertext">FAQ</a>
+	    </td>
+	    <td>  </td><td>  </td><td>  </td><td>  </td><td>  </td><td>  </td>
+	    <td>
+	      <a href="about.html" id="footertext">About</a>
+	    </td>
+	    <td>  </td><td>  </td><td>  </td><td>  </td><td>  </td><td>  </td>
+	    <td>
+	      <a href="forpublishers.html" id="footertext">For Publishers</a>
+	    </td>
+	    <td>  </td><td>  </td><td>  </td><td>  </td><td>  </td><td>  </td>
+	    <td>
+	      <a href="discuss.html" id="footertext">Discuss</a>
+	    </td>
+	  </tr></table>
+	</div>
+	</center>
+
+    <!-- Google Analytics scripts -->
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      var pageTracker = _gat._getTracker("UA-4034498-1");
+      pageTracker._trackPageview();
+    </script>
+
+</body>
+</html>

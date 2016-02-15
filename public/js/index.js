@@ -23,7 +23,7 @@ $(document).ready(function(){
 	$('<img/>').attr('src', background ).load(function() {
 		$(this).remove(); // prevent memory leak
 		$('#home').css('background-image', 'url('+background+')');
-		FirstTimeOverlay();
+		//FirstTimeOverlay();
 	});
 
     $.mobile.loading('show');
@@ -40,8 +40,14 @@ $(document).ready(function(){
 /*
 	$("#flowpage").on("pagebeforeshow", function(event) { FullScreen(true); } );
 */
-	$("#poempage").on("pagebeforeshow", function(event) { FullScreen(false); } );
-	
+	$("#poempage").on("pagebeforeshow", 
+					  function(event) { 
+						  FullScreen(false); 
+						  FirstFlowOverlay();
+					  } );
+	$("#home").on("pageinit", 
+					  function(event) { FirstTimeOverlay(); } );
+
 	Mobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) );
     $(window).bind('orientationChange', function(event) {
         checkOrientation();
@@ -64,7 +70,7 @@ $(document).ready(function(){
 		$("#scrubberslider").on('slidestart', function(e) {Scrub(); });
 		$("#scrubberslider").on('slidestop', function(e) {ScrubStop(); });
 	});
-		
+	
 	setTimeout("DispatchToPage();", 100);
     $.mobile.loading('hide');
 });
@@ -74,14 +80,17 @@ function DispatchToPage() {
 // handle any passed in url params to deep link
 	if (location.hash.split('?ID=')[0] == '#poempage')
 		DispatchToPoemPage();
-	if (location.hash.split('?ID=')[0] == '#collectionpage')
+	else if (location.hash.split('?ID=')[0] == '#collectionpage')
 		DispatchToCollectionPage();
+	else
+		FirstTimeOverlay();
 }
 
 function DispatchToPoemPage() {
 // handle any passed in poem id
 	CurrentFlow = location.hash.split('ID=')[1] || 280;
 	FirstFlowOverlayDelay += 1000; // delay overlay
+	FirstFlowOverlay();
 	LoadCurrentFlow();
 }
 	
