@@ -182,6 +182,7 @@ function setScale()
 }
 
 var flowcache;
+var rightmargin = 0;
 function CreateFlow() {
     // Function to parse flow xml and create label objects
     setScale();             // need scale set below
@@ -195,10 +196,10 @@ function CreateFlow() {
             var t12 = parseInt($(m1).attr('t2')) + max;
             var t21 = parseInt($(m2).attr('t1')) + max;
             var t22 = parseInt($(m2).attr('t2')) + max;
-            var x11 = parseInt($(m1).attr('x1'));
-            var x12 = parseInt($(m1).attr('x2'));
-            var x21 = parseInt($(m2).attr('x1'));
-            var x22 = parseInt($(m2).attr('x2'));
+            var x11 = parseInt($(m1).attr('x1')) + rightmargin;
+            var x12 = parseInt($(m1).attr('x2')) + rightmargin;
+            var x21 = parseInt($(m2).attr('x1')) + rightmargin;
+            var x22 = parseInt($(m2).attr('x2')) + rightmargin;
             var y11 = parseInt($(m1).attr('y1'));
             var y12 = parseInt($(m1).attr('y2'));
             var y21 = parseInt($(m2).attr('y1'));
