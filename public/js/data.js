@@ -2,6 +2,41 @@
   General data processsing
 */
 
+function isLocalStorageAvailable() {
+    try {
+        const test = 'test';
+        window.localStorage.setItem(test, test);
+        window.localStorage.removeItem(test);
+        return false; // should be: true;
+    } catch(e) {
+        return false;
+    }
+}
+let localStorageMock = (function() {
+    let store = {};
+
+    return {
+        getItem: function(key) {
+            return store[key] || null;
+        },
+        setItem: function(key, value) {
+            store[key] = value.toString();
+        },
+        removeItem: function(key) {
+            delete store[key];
+        },
+        clear: function() {
+            store = {};
+        }
+    };
+})();
+
+// Check if localStorage is available
+if (!isLocalStorageAvailable()) {
+    // If not, use the mock
+    window.localStorage = localStorageMock;
+}
+
 var DefaultCollection = 
     {
 		"name": "PoemFlow Classics",
@@ -116,19 +151,26 @@ function ProcessLocalStorage() {
 /* Flow reading function */
 var CurrentXML;
 function ReadFileXML(filename) {
-	console.log("trying to get "+filename);
-    $.mobile.loading('show');
-	$.ajax({
-        type: "GET",
-		url: "/flows/" + filename,
-		dataType: "xml",
-		success: function(thexml) {
-			CurrentXML = thexml;
-			AddFlowLocally();
-			SetupFlow();
-			$.mobile.loading('hide');
-		}
-    });
+	return new Promise((resolve, reject) => {
+		console.log("trying to get "+filename);
+		$.mobile.loading('show');
+		$.ajax({
+			type: "GET",
+			url: "/flows/" + filename,
+			dataType: "xml",
+			success: function(thexml) {
+				CurrentXML = thexml;
+				AddFlowLocally();
+				SetupFlow();
+				$.mobile.loading('hide');
+				resolve(CurrentXML);
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				$.mobile.loading('hide');
+				reject(errorThrown);
+			}
+		});
+	});
 }
 
 

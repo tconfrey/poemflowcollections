@@ -97,13 +97,13 @@ function GetFlowById(id) {
     return false;     // return something
 }
 
-function LoadCurrentFlow() {
+async function LoadCurrentFlow() {
     // Fun with Flows...
     var flow = GetFlowById(CurrentFlow);
 	if (flow) {					// might not be loaded
 		SetFavButtonStatus(flow);
 	}
-    ReadFileXML(CurrentFlow+".xml");
+    await ReadFileXML(CurrentFlow+".xml");
 }
 
 function SetFavButtonStatus(flow) {

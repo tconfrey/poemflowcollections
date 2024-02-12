@@ -144,7 +144,7 @@ function FullScreen(on) {
 	}		
 }
 
-function PlayFlow() {
+function PlayFlow(fullScreen=true) {
 	// Play current flow
 
 	if ($("#scrubberslider").hasClass("ui-slider-input")) // ensure already set up
@@ -152,7 +152,7 @@ function PlayFlow() {
 	SetupScreen();
 
     $.mobile.changePage($("#flowpage"), {transition: "fade"});
-	FullScreen(true);
+	FullScreen(fullScreen);
     setScale();
     paused = true;          // need to set this to get unpause to work on initial start
     UnPause();

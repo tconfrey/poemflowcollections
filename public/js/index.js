@@ -82,6 +82,8 @@ function DispatchToPage() {
 		DispatchToPoemPage();
 	else if (location.hash.split('?ID=')[0] == '#collectionpage')
 		DispatchToCollectionPage();
+	if (location.hash.split('?ID=')[0] == '#flowpage')
+		DispatchToFlowPage();
 	else
 		FirstTimeOverlay();
 }
@@ -92,5 +94,11 @@ function DispatchToPoemPage() {
 	FirstFlowOverlayDelay += 1000; // delay overlay
 	FirstFlowOverlay();
 	LoadCurrentFlow();
+}
+async function DispatchToFlowPage() {
+// handle any passed in poem id
+	CurrentFlow = location.hash.split('ID=')[1] || 280;
+	await LoadCurrentFlow();
+	PlayFlow(false);
 }
 	
